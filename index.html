@@ -1,0 +1,3015 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <title data-translate="main-title">Ayanta Bali | A Space of Inner Renewal</title>
+
+    <!-- Open Graph meta tagi dla komunikatorów -->
+    <meta property="og:title" content="Villa Ayanta Bali">
+    <meta property="og:description" content="Discover a space where modern comfort meets Balinese tradition, creating an atmosphere of revitalization and harmony.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ayanta-bali.com">
+    <meta property="og:image" content="https://ayanta-bali.com/ayantalogo0.png">
+    <meta property="og:image:alt" content="Ayanta Bali Logo">
+    <meta property="og:image:width" content="800">
+    <meta property="og:image:height" content="407">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+        :root {
+            --page-margin: 20px;
+            --primary-color: #fcc170;
+            --secondary-color: #1a1a1a;
+            --text-light: #ffffff;
+            --text-dark: #333333;
+            --bg-light: #ffffff;
+            --bg-dark: #121212;
+            --transition: all 0.4s ease;
+        }
+
+        
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body,
+        html {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            line-height: 1.7;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+            background: rgba(0, 0, 0, 0.39);
+            backdrop-filter: blur(10px);
+        }
+
+        nav.scrolled {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 1rem 5%;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-image {
+            height: 120px;
+            /* Dostosuj wysokość wedle potrzeb */
+            width: auto;
+            max-width: 360px;
+            /* Dostosuj maksymalną szerokość */
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 1.4rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+    display: none;
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 25px;
+    color: white;
+}
+
+@media screen and (max-width: 768px) {
+    /* Zmniejszenie wysokości nagłówka na urządzeniach mobilnych */
+    #navbar {
+        height: 95px; /* Zmniejszona wysokość */
+        padding: 12px 35px; /* Mniejszy padding */
+        text-align: center;
+    }
+
+    .logo {
+        display: inline-block;
+        margin: 0 auto;
+        float: none;
+    }
+    /* Dostosowanie rozmiaru logo dla ekranów mobilnych */
+    .logo-image {
+        height: 80px; /* Mniejsze logo */
+        width: auto; /* Zachowaj proporcje */
+        
+    }
+    
+    /* Półprzezroczysta warstwa pod menu */
+    .nav-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 998;
+    }
+    .nav-overlay.active {
+        display: block;
+    }
+    /* Aktualizacja pozycji menu mobilnego */
+    .nav-links {
+        top: 50px; /* Ta wartość musi odpowiadać nowej wysokości navbar */
+        display: none;
+        position: fixed;
+        background-color: #fff;
+        right: 0;
+        width: 250px;
+        max-width: 50%;
+        height: auto; /* Wysokość dopasowana do zawartości */
+        max-height: calc(100vh - 95px); /* Maksymalna wysokość menu */
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+        z-index: 999;
+        overflow-y: auto; /* Umożliwia przewijanie gdy menu jest długie */
+        transition: transform 0.3s ease-out;
+        transform: translateX(100%); /* Ukrycie menu po prawej stronie */
+    }
+    
+    .nav-links.active {
+        display: flex;
+        transform: translateX(0); /* Pokazanie menu */
+    }
+    
+    .hamburger {
+        display: block;
+        position: absolute;
+        right: 35px;
+        top: 50%;
+    }
+    
+    /* Dodaj te style dla poprawnego wyświetlania elementów menu */
+    .nav-links li {
+        margin: 5% 0;
+        list-style-type: none; /* Usuwa kropki z listy */
+        width: 100%;
+        text-align: center;
+    }
+    
+    .nav-links li a {
+        display: block;
+        color: #333; /* Kolor tekstu */
+        text-decoration: none; /* Usuwa podkreślenie */
+        font-size: 14px; /* Rozmiar czcionki */
+        font-weight: bold; /* Pogrubiona czcionka */
+        padding: 0px 0px; /* Większy obszar klikania */
+    }
+    
+    .nav-links li a:hover {
+        background-color: #f5f5f5; /* Efekt najechania */
+    }
+}
+
+
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.6);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4));
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 0 10%;
+        }
+
+        .hero-content {
+            max-width: 650px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+        }
+
+        .hero-title {
+            font-size: 4.5rem;
+            line-height: 1.2;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-description {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+            max-width: 550px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: rgba(250, 249, 189, 0.877);;
+            border: 2px solid var(--primary-color);
+            color: var(--text-light);
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: var(--primary-color);
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        .btn:hover::before {
+            width: 100%;
+        }
+
+        .btn:hover {
+            color: var(--text-dark);
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: var(--text-light);
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-down i {
+            font-size: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0) translateX(-50%);
+            }
+
+            50% {
+                transform: translateY(10px) translateX(-50%);
+            }
+        }
+        /* Styl dla przełącznika języków */
+.language-switch {
+    position: relative;
+    display: inline-block;
+    z-index: 1010;
+}
+
+.language-btn {
+    background: transparent;
+    color: var(--text-light);
+    border: none; /*1px solid rgba(255, 255, 255, 0.3);*/
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.3s ease;
+}
+
+.language-btn i:first-child {
+    font-size: 1.2rem; /* Większa ikona globu */
+}
+
+.language-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.language-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 4px;
+    width: 120px;
+    display: none;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1010;
+}
+
+.language-dropdown.active {
+    display: block;
+}
+
+.language-dropdown a {
+    display: block;
+    padding: 10px 15px;
+    color: var(--text-light);
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.language-dropdown a:hover,
+.language-dropdown a.active {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--primary-color);
+}
+
+/* Desktop view */
+@media screen and (min-width: 769px) {
+    nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between; /* oddziela grupy po bokach */
+    }
+    .left-group {
+    display: flex;
+    align-items: center;
+  }
+    
+    .logo {
+        margin-right: auto; /* Pushes everything else to the right */
+    }
+    
+    .language-switch {
+        /*order: 0;  Places it before the logo */
+        margin-right: 20px;
+    }
+}
+
+/* Mobile view */
+@media screen and (max-width: 768px) {
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 20px;
+        background: rgba(0, 0, 0, 0.39); /* Przywrócenie przezroczystości */
+        backdrop-filter: blur(10px); /* Przywrócenie efektu rozmycia */
+        transition: var(--transition); /* Płynna zmiana tła */
+        padding-left: var(--page-margin);
+        padding-right: var(--page-margin);
+    }
+
+    nav.scrolled {
+        background: rgba(0, 0, 0, 0.9); /* Tło po przewinięciu */
+        padding: 10px 20px; /* Lekko zmniejszony padding */
+    }
+
+    .left-group {
+        display: flex;
+        align-items: center;
+        position: relative;
+        width: 100%;
+        justify-content: center; /* Centrowanie zawartości */
+    }
+
+    .logo {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%); /* Centrowanie poziome */
+    }
+
+    .logo-image {
+        height: 60px; /* Rozmiar logo dostosowany do nawigacji */
+        width: auto;
+    }
+
+    .language-switch {
+        position: absolute;
+        left: calc(0px - var(--page-margin)); /* Przycisk języka po lewej */
+        top: 50%;
+        transform: translateY(-50%); /* Wyrównanie w pionie */
+    }
+
+    /* Główna treść strony również używa tej samej zmiennej */
+    main {
+        padding-left: var(--page-margin);
+        padding-right: var(--page-margin);
+    }
+
+    .hamburger {
+        position: absolute;
+        right: 20px; /* Hamburger po prawej */
+        top: 50%;
+        transform: translateY(-50%); /* Wyrównanie w pionie */
+    }
+
+    .nav-links {
+        top: 95px; /* Dopasowanie do wysokości nawigacji */
+    }
+    /* Przyciski języków i hamburger są już poprawnie pozycjonowane w układzie mobilnym */
+}
+        /* Sections General */
+        section {
+            padding: 8rem 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 5rem;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--primary-color);
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        .about-content p {
+            margin-bottom: 2rem;
+            color: #666;
+        }
+
+        .about-image {
+            position: relative;
+            height: 500px;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: -20px;
+            left: -20px;
+            border: 2px solid var(--primary-color);
+            z-index: -1;
+            border-radius: 5px;
+        }
+
+        /* Features Section */
+        .features {
+            background: #f9f9f9;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 2rem;
+            transition: var(--transition);
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .feature-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-item p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+/* Style dla lightboxa */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-img {
+    max-width: 100%;
+    max-height: 85vh;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.close-lightbox {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+    z-index: 1010;
+}
+
+/* Style dla nawigacji */
+.lightbox-nav {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1005;
+}
+
+.lightbox-prev,
+.lightbox-next {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 40px;
+    padding: 15px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.lightbox-prev {
+    margin-left: 10px;
+}
+
+.lightbox-next {
+    margin-right: 10px;
+}
+
+.lightbox-prev:hover,
+.lightbox-next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Responsywność dla mniejszych ekranów */
+@media (max-width: 768px) {
+    .lightbox-prev,
+    .lightbox-next {
+        font-size: 30px;
+        padding: 10px 15px;
+    }
+    
+    .close-lightbox {
+        font-size: 30px;
+        top: 10px;
+        right: 15px;
+    }
+}
+
+        /* Responsywność dla małych urządzeń */
+        @media only screen and (max-width: 700px) {
+
+            .prev,
+            .next {
+                font-size: 20px;
+                padding: 10px;
+            }
+
+            .close-btn {
+                top: 10px;
+                right: 20px;
+                font-size: 30px;
+            }
+        }
+
+       /* Gallery Section */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: 200px;
+    gap: 1rem;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* RZĄD 1 (pozycje 1-3) */
+.gallery-item:nth-child(1) {
+    grid-column: 1 / span 8;  /* kolumny 1-8 */
+    grid-row: 1 / span 2;     /* rzędy 1-2 */
+}
+
+.gallery-item:nth-child(2) {
+    grid-column: 9 / span 4;  /* kolumny 9-12 */
+    grid-row: 1 / span 1;     /* rząd 1 */
+}
+
+.gallery-item:nth-child(3) {
+    grid-column: 9 / span 4;  /* kolumny 9-12 */
+    grid-row: 2 / span 1;     /* rząd 2 */
+}
+
+/* RZĄD 3 (pozycje 4-5) */
+.gallery-item:nth-child(4) {
+    grid-column: 1 / span 6;  /* kolumny 1-6 */
+    grid-row: 3 / span 1;     /* rząd 3 */
+}
+
+.gallery-item:nth-child(5) {
+    grid-column: 7 / span 6;  /* kolumny 7-12 */
+    grid-row: 3 / span 1;     /* rząd 3 */
+}
+
+/* RZĄD 4-5 (pozycje 6-8) */
+.gallery-item:nth-child(6) {
+    grid-column: 1 / span 4;  /* kolumny 1-4 */
+    grid-row: 4 / span 2;     /* rzędy 4-5 */
+}
+
+.gallery-item:nth-child(7) {
+    grid-column: 5 / span 4;  /* kolumny 5-8 */
+    grid-row: 4 / span 1;     /* rząd 4 */
+}
+
+.gallery-item:nth-child(8) {
+    grid-column: 9 / span 4;  /* kolumny 9-12 */
+    grid-row: 4 / span 1;     /* rząd 4 */
+}
+
+/* RZĄD 5-6 (pozycje 9-10) */
+.gallery-item:nth-child(9) {
+    grid-column: 5 / span 4;  /* kolumny 5-8 */
+    grid-row: 5 / span 1;     /* rząd 5 */
+}
+
+.gallery-item:nth-child(10) {
+    grid-column: 9 / span 4;  /* kolumny 9-12 */
+    grid-row: 5 / span 1;     /* rząd 5 */
+}
+
+/* RZĄD 6 (pozycje 11-12) */
+.gallery-item:nth-child(11) {
+    grid-column: 1 / span 6;  /* kolumny 1-6 */
+    grid-row: 6 / span 1;     /* rząd 6 */
+}
+
+.gallery-item:nth-child(12) {
+    grid-column: 7 / span 6;  /* kolumny 7-12 */
+    grid-row: 6 / span 1;     /* rząd 6 */
+}
+
+/* RZĄD 7 (pozycje 13-16) */
+.gallery-item:nth-child(13) {
+    grid-column: 1 / span 3;  /* kolumny 1-3 */
+    grid-row: 7 / span 1;     /* rząd 7 */
+}
+
+.gallery-item:nth-child(14) {
+    grid-column: 4 / span 3;  /* kolumny 4-6 */
+    grid-row: 7 / span 1;     /* rząd 7 */
+}
+
+.gallery-item:nth-child(15) {
+    grid-column: 7 / span 3;  /* kolumny 7-9 */
+    grid-row: 7 / span 1;     /* rząd 7 */
+}
+
+.gallery-item:nth-child(16) {
+    grid-column: 10 / span 3; /* kolumny 10-12 */
+    grid-row: 7 / span 1;     /* rząd 7 */
+}
+
+/* Dla elementów powyżej 16 - automatyczny układ */
+.gallery-item:nth-child(n+17) {
+    grid-column: span 4;
+    grid-row: span 1;
+}
+
+/* Responsywność */
+@media (max-width: 1024px) {
+    .gallery-grid {
+        grid-template-columns: repeat(8, 1fr);
+    }
+    
+    .gallery-item:nth-child(1) {
+        grid-column: 1 / span 5;
+        grid-row: span 2;
+    }
+    
+    .gallery-item:nth-child(2) {
+        grid-column: 6 / span 3;
+        grid-row: span 1;
+    }
+    
+    .gallery-item:nth-child(3) {
+        grid-column: 6 / span 3;
+        grid-row: span 1;
+    }
+    
+    .gallery-item:nth-child(4),
+    .gallery-item:nth-child(5) {
+        grid-column: span 4;
+        grid-row: span 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: 150px;
+    }
+    
+    .gallery-item:nth-child(1) {
+        grid-column: span 4;
+        grid-row: span 2;
+    }
+    
+    .gallery-item:nth-child(n+2) {
+        grid-column: span 2;
+        grid-row: span 1;
+    }
+}
+
+.gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.gallery-item:hover .gallery-img {
+    transform: scale(1.1);
+}
+
+.gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.gallery-overlay span {
+    color: var(--text-light);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+}
+
+/* Media queries dla responsywności galerii */
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(6, 1fr);
+        grid-auto-rows: 150px;
+        gap: 0.5rem;
+    }
+    
+    .gallery-item:nth-child(1) {
+        grid-column: span 6;
+        grid-row: span 2;
+    }
+    
+    .gallery-item:nth-child(2),
+    .gallery-item:nth-child(3) {
+        grid-column: span 3;
+        grid-row: span 1;
+    }
+    
+    .gallery-item:nth-child(n+4) {
+        grid-column: span 3;
+        grid-row: span 1;
+    }
+
+    .gallery-overlay p, .gallery-overlay span {
+        color: var(--text-light);
+        font-family: 'Playfair Display', serif;
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-grid {
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: 120px;
+        gap: 0.3rem;
+    }
+    
+    .gallery-item:nth-child(1) {
+        grid-column: span 4;
+        grid-row: span 2;
+    }
+    
+    .gallery-item:nth-child(n+2) {
+        grid-column: span 2;
+        grid-row: span 1;
+    }
+
+    @media (max-width: 480px) {
+    .gallery-overlay p, .gallery-overlay span {
+        color: var(--text-light);
+        font-family: 'Playfair Display', serif;
+        font-size: 1.3rem;
+    }
+}
+
+}
+
+        /* Amenities Section */
+        .amenities {
+            background: var(--bg-dark);
+            color: var(--text-light);
+        }
+
+        .amenities .section-title h2 {
+            color: var(--text-light);
+        }
+
+        .amenities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .amenity-item {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .amenity-icon {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+
+        .amenity-details h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .amenity-details p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+
+        /* Location Section */
+        .location-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .location-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .location-details {
+            margin-top: 2rem;
+        }
+
+        .location-detail {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .location-detail i {
+            color: var(--primary-color);
+            margin-right: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .location-map {
+            width: 100%;
+            height: 400px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .location-map img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: #f9f9f9;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .testimonial-item {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+
+        .testimonial-item::before {
+            content: '\201C';
+            font-family: Georgia, serif;
+            font-size: 5rem;
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            color: var(--primary-color);
+            opacity: 0.3;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            color: #666;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .testimonial-author img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 1rem;
+        }
+
+        .author-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .author-info p {
+            font-size: 0.9rem;
+            color: #999;
+        }
+
+        footer {
+    background: var(--bg-dark);
+    color: var(--text-light);
+    padding: 8rem 5%;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contact-intro p {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.contact-methods {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 4rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-method {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: var(--transition);
+    flex: 1;
+    min-width: 200px;
+}
+
+.contact-method:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.contact-icon {
+    background: var(--primary-color);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    flex-shrink: 0;
+}
+
+.contact-icon i {
+    font-size: 1.5rem;
+    color: var(--bg-dark);
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-details h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+    color: var(--text-light);
+    font-weight: 600;
+}
+
+.contact-details a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: var(--transition);
+    word-break: break-all;
+}
+
+.contact-details a:hover {
+    color: var(--text-light);
+    transform: scale(1.05);
+}
+
+.contact-form-intro {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.contact-form-intro p {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 500;
+}
+
+.contact-form {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 3rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 1rem;
+    align-items: center;
+}
+
+.form-group.full-width {
+    grid-column: span 2;
+    grid-template-columns: 150px 1fr;
+}
+
+.form-group label {
+    margin-bottom: 0;
+    font-weight: 500;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: right;
+    padding-right: 0;
+}
+
+.form-control {
+    padding: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    transition: var(--transition);
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-light);
+    width: 100%;
+}
+
+select.form-control option {
+    color: #000000 !important;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(252, 193, 112, 0.1);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.form-control::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.btn-submit {
+    background: var(--primary-color);
+    color: var(--bg-dark);
+    border: 2px solid var(--primary-color);
+    padding: 1rem 3rem;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: var(--transition);
+    width: 100%;
+    margin-top: 1rem;
+    grid-column: span 2;
+}
+
+.btn-submit:hover {
+    background: transparent;
+    color: var(--primary-color);
+}
+
+.btn-submit.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+/* Checkbox z polityką prywatności */
+.privacy-consent {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin: 25px 0;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.02);
+    border-radius: 8px;
+    border-left: 3px solid #c9a96e;
+}
+
+.privacy-consent input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-top: 2px;
+    cursor: pointer;
+}
+
+.privacy-consent label {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #666;
+    cursor: pointer;
+}
+
+.privacy-link {
+    color: #c9a96e;
+    text-decoration: underline;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.privacy-link:hover {
+    color: #a08652;
+}
+
+.privacy-text {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #666;
+}
+
+/* Modal z polityką */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+}
+
+.modal.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: white;
+    margin: 20px;
+    padding: 0;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 80vh;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.modal-header {
+    background: linear-gradient(135deg, #c9a96e 0%, #a08652 100%);
+    color: white;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 22px;
+}
+
+.close {
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.close:hover {
+    opacity: 0.7;
+}
+
+.modal-body {
+    padding: 30px;
+    max-height: 60vh;
+    overflow-y: auto;
+    line-height: 1.6;
+    color: #444;
+}
+
+.modal-body h3 {
+    color: #c9a96e;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.modal-body p {
+    margin-bottom: 12px;
+    font-size: 14px;
+}
+
+.modal-body ul {
+    margin-left: 20px;
+    margin-bottom: 12px;
+}
+
+.modal-body li {
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+
+        /* Media Queries */
+        @media (max-width: 1024px) {
+            .hero-title {
+                font-size: 3.5rem;
+            }
+
+            .about-grid,
+            .location-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .about-image {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 5%;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: 2.8rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-item {
+                grid-column: span 1 !important;
+                grid-row: span 1 !important;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-group.full {
+                grid-column: span 1;
+            }
+
+            section {
+                padding: 5rem 5%;
+            }
+            .contact-methods {
+                flex-direction: column;
+                gap: 1.5rem;
+                max-width: 300px;
+            }
+    
+            .contact-method {
+                min-width: auto;
+                padding: 1.5rem;
+            }
+    
+            .contact-details a {
+                font-size: 0.9rem;
+                word-break: break-word;
+            }
+            .contact {
+                padding: 5rem 5%;
+            }
+            .contact-form {
+                padding: 2rem;
+            }
+    
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+    
+            .form-group {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+                text-align: left;
+            }
+    
+            .form-group.full-width {
+                grid-column: span 1;
+                grid-template-columns: 1fr;
+            }
+    
+            .form-group label {
+                text-align: left;
+                margin-bottom: 0.5rem;
+            }
+    
+            .btn-submit {
+                grid-column: span 1;
+            }
+
+        }
+
+        #formMessage.success {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #d4edda;
+    color: #155724;
+    text-align: center;
+  }
+  #formMessage.error {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f8d7da;
+    color: #721c24;
+    text-align: center;
+  }
+    </style>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    <style>
+/* Mniejsza czcionka dla niemieckiego tytułu */
+html[lang="de"] [data-translate="hero-title"] {
+    font-size: 4rem !important;
+}
+
+/* Jeszcze mniejsza czcionka na tabletach */
+@media (max-width: 768px) {
+    html[lang="de"] [data-translate="hero-title"] {
+        font-size: 2.5rem !important;
+    }
+}
+
+
+</style>
+
+<style>
+.gallery-item.active .gallery-overlay {
+    opacity: 1;
+}
+.gallery-item.active .gallery-img {
+    transform: scale(1.1);
+}
+</style>
+
+<style>
+.map-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 450px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+.map-container:hover {
+    box-shadow: 0 16px 50px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+.map-container iframe {
+    filter: contrast(1.05) saturate(1.1) brightness(0.95);
+    transition: filter 0.3s ease;
+}
+
+.map-container:hover iframe {
+    filter: contrast(1.1) saturate(1.2) brightness(1);
+}
+
+.map-overlay {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 12px 18px;
+    border-radius: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    pointer-events: none;
+    z-index: 10;
+}
+
+.location-marker {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #2c3e50;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.location-marker i {
+    color: #e74c3c;
+    font-size: 1.1rem;
+}
+
+/* Responsywność */
+@media (max-width: 768px) {
+    .map-container {
+        min-height: 350px;
+    }
+    
+    .map-overlay {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 8px 12px;           /* Zmniejszone z 12px 18px */
+    border-radius: 20px;         /* Zmniejszone z 25px */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    pointer-events: none;
+    z-index: 10;
+    max-width: 120px;            /* Nowe - ogranicza szerokość */
+    white-space: nowrap;         /* Nowe - zapobiega łamaniu tekstu */
+}
+
+.location-marker {
+    display: flex;
+    align-items: center;
+    gap: 6px;                    /* Zmniejszone z 8px */
+    color: #2c3e50;
+    font-weight: 600;
+    font-size: 0.8rem;           /* Zmniejszone z 0.9rem */
+}
+
+.location-marker i {
+    color: #e74c3c;
+    font-size: 0.9rem;           /* Zmniejszone z 1.1rem */
+}
+}
+
+@media (max-width: 480px) {
+    .map-container {
+        min-height: 280px;
+        border-radius: 8px;
+    }
+    
+   .map-overlay {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 8px 12px;           /* Zmniejszone z 12px 18px */
+    border-radius: 20px;         /* Zmniejszone z 25px */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    pointer-events: none;
+    z-index: 10;
+    max-width: 120px;            /* Nowe - ogranicza szerokość */
+    white-space: nowrap;         /* Nowe - zapobiega łamaniu tekstu */
+}
+
+.location-marker {
+    display: flex;
+    align-items: center;
+    gap: 6px;                    /* Zmniejszone z 8px */
+    color: #2c3e50;
+    font-weight: 600;
+    font-size: 0.8rem;           /* Zmniejszone z 0.9rem */
+}
+
+.location-marker i {
+    color: #e74c3c;
+    font-size: 0.9rem;           /* Zmniejszone z 1.1rem */
+}
+}
+
+/* Animacja ładowania */
+.map-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #f0f0f0 25%, transparent 25%), 
+                linear-gradient(-45deg, #f0f0f0 25%, transparent 25%), 
+                linear-gradient(45deg, transparent 75%, #f0f0f0 75%), 
+                linear-gradient(-45deg, transparent 75%, #f0f0f0 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+    opacity: 0;
+    pointer-events: none;
+    z-index: -1;
+    transition: opacity 0.3s ease;
+}
+
+.map-container.loading::before {
+    opacity: 1;
+}
+
+.gallery-overlay p {
+    color: var(--text-light);
+    font-size: 1.3rem;
+    text-align: center;
+    font-weight: 300;
+    margin: 0;
+    padding: 10px;
+    font-family: 'Playfair Display', serif; /* <-- DODAJ TĘ LINIĘ */
+}
+</style>
+
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+    <div class="left-group">
+        <a href="#" class="logo">
+            <img src="Ayanta przezroczysta.png" alt="Villa Ayanta Logo" class="logo-image">
+        </a>
+
+        <div class="language-switch" id="languageSwitch">
+            <button class="language-btn">
+                <i class="fas fa-globe"></i>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="language-dropdown">
+                <a href="#" class="active">English</a>
+                <a href="#">Polski</a>
+                <a href="#">Deutsch</a>
+            </div>
+        </div>
+    </div>
+
+        <button class="hamburger" id="hamburger">☰</button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#about" data-translate="nav-about">O Willi</a></li>
+            <li><a href="#location" data-translate="nav-location">Lokalizacja</a></li>
+            <li><a href="#features" data-translate="nav-features">Usługi i Udogodnienia</a></li>
+            <li><a href="#gallery" data-translate="nav-gallery">Galeria</a></li>  
+            <li><a href="#contact" data-translate="nav-contact">Kontakt</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <img src="N Plaza.JPG" alt="Luxury Villa View" class="hero-video">
+        <div class="hero-overlay">
+            <div class="hero-content">
+                <p class="hero-subtitle" data-translate="hero-subtitle">Wypoczynek w raju</p>
+                <h1 class="hero-title" data-translate="hero-title">Żywa Oaza Na Rajskim Bali</h1>
+                <p class="hero-description" data-translate="hero-description">Odkryj wyjątkową przestrzeń, gdzie nowoczesny standard i komfort spotyka się z balijską
+                    tradycją, tworząc niepowtarzalny klimat regeneracji, spokoju i harmonii.</p>
+                <a href="#contact" class="btn" data-translate="hero-contact" style="background: transparent !important;">Skontaktuj się</a>
+            </div>
+        </div>
+        <div class="scroll-down">
+            <span data-translate="more-arrow">Odkryj więcej</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="section-title">
+            <h2 data-translate="about-title">Willa Ayanta</h2>
+        </div>
+        <div class="about-grid">
+            <div class="about-content">
+                <h3 data-translate="about-subtitle">Magia w sercu tropikalnego raju</h3>
+                <p data-translate="about-text1">Ayanta to miejsce stworzone z intencją ukojenia codziennego szumu i powrotu do wewnętrznej harmonii. Wtopiona w rytm balijskiej ziemi, łączy elegancję 
+                nowoczesnych form z pięknem lokalnej tradycji. Jej sercem jest basen z ogrodem w hinduistycznym stylu — przestrzeń rytuału i oddechu. Czasem można tu usłyszeć ocean, 
+                którego złocista otwarta plaża jest zaledwie 3 minuty spacerem od posesji. Każdy element tej przestrzeni został dobrany nie tylko dla komfortu ciała, ale też z myślą o 
+                delikatnej duchowej przemianie. Naturalne materiały, ręcznie tworzone meble i światło sączące się przez tropikalną zieleń współtworzą tu 
+                atmosferę zapraszającą Cię do zatrzymania, wsłuchania się i odnowy.</p>
+                <p data-translate="about-text2">W naszej willi mieszczą się trzy niezależne sypialnie z prywatnymi łazienkami. Piękny basen, przytulny salon oraz w pełni wyposażona kuchnia
+                    to otwarta współdzielona przestrzeń, gdzie spotykają się ludzkie historie i gdzie wszyscy oddychają wspólnym harmonijnym rytmem. W razie rezerwacji wszystkich trzech sypialni cały kompleks jest na Twoją wyłączność.
+                    Ayanta jest świątynią odpoczynku, miejscem, które skłania do wyciszenia i kontaktu z subtelnym wewnętrznym głosem.
+                </p>
+                <a href="#gallery" class="btn" style="color: black;" data-translate="about-button">Zobacz galerię</a>
+            </div>
+            <div class="about-image">
+                <img src="Ayanta 1.jpg" alt="Ayanta garden 1">
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section id="location" class="location">
+        <div class="section-title">
+            <h2 data-translate="location-title">Lokalizacja</h2>
+        </div>
+        <div class="about-grid">
+            <div class="about-content">
+                <h3 data-translate="location-subtitle">Karangasem - Spokój i tradycyjny duch Bali na wschodniej części wyspy</h3>
+                <p data-translate="location-text1">Wschodnia część Bali łączy w sobie tradycyjną balijską kulturę z nowoczesnym komfortem. W
+                    przeciwieństwie do zachodniej przeciążonej turystyką strony panuje tu zauważalny spokój, a turyści mają więcej przestrzeni i prywatności. Złote plaże
+                    nie są przeludnione, jest więcej naturalnej zieleni, a lokalni ludzie są przyjaźni i pomocni. Ocean jest spokojny i pozwala na pływanie. Są tu również słynne na całym świecie miejsca do snorkelingu i nurkowania. 
+                    Na zachodnich balijskich plażach nie ma dobrych warunków do pływania lub snorkelingu ze względu na silne fale przyciągające głównie surferów. Warto o tym wiedzieć przy planowaniu pobytu.</p>
+                <p data-translate="location-text2">To bardzo dobre miejsce na poznanie lokalnej tradycyjnej kuchni, bycie świadkiem wielkich religijnych ceremonii, czy zwiedzanie
+                     bajkowych wodospadów i pięknych świątyń. Znajduje się tu również największy na Bali wulkan Agung, z którego szczytu można oglądać jedyny w swoim rodzaju wschód słońca.</p>
+                <p data-translate="location-text3">To dobry wybór dla osób, które chcą wypocząć w rajskim środowisku, relaksować się w basenie lub
+                    oceanie i pójść wieczorem do restauracji lub pubu z muzyką na żywo. To miejsce dla tych, którzy cenią spokój
+                     i autentyczność — z dala od głośnych klubów, blisko natury i lokalnej kultury.
+                    Nasz rejon jest dobrą bazą, do której wraca się odpocząć po intensywnym zwiedzaniu zaplanowanych atrakcji i długich wycieczkach.</p>
+                <a href="#gallery" class="btn" style="color: black;" data-translate="location-button">Zobacz galerię</a>
+            </div>
+
+            <div class="about-image">
+    <div class="map-container">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d301558.52175533905!2d115.45846317082396!3d-8.476009135332719!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zOMKwMzAnMTQuNCJTIDExNcKwMzMnMzAuMyJF!5e1!3m2!1spl!2sid!4v1749303687807!5m2!1spl!2sid"
+            width="100%" 
+            height="100%" 
+            style="border:0; border-radius: 12px;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Lokalizacja willi na Bali">
+        </iframe>
+        <div class="map-overlay">
+            <div class="location-marker">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Ayanta Bali</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+            <div class="about-image">
+                <img src="Karangasem 2.JPG" alt="Agung">
+            </div>
+            <div class="about-image">
+                <img src="Karangasem 1.jpg" alt="Beach">
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">        <div class="section-title">
+            <h2 data-translate="features-title">Twój pobyt w willi Ayanta zawiera</h2>
+        </div>
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class="fas fa-swimmer"></i>
+                </div>
+                <h3 data-translate="features-pooltitle">Luksusowy basen</h3>
+                <p data-translate="features-pooltext">Duży basen idealnie nadaje się do relaksu i ochłody w tropikalnym klimacie.
+                    Dzięki bezpiecznej głębokości, strefie dla dzieci i akcesoriom do pływania jest dostosowany do każdego.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class="fas fa-bed"></i>
+                </div>
+                <h3 data-translate="features-bedroomtitle">3 komfortowe sypialnie</h3>
+                <p data-translate="features-bedroomtext">Każda sypialnia posiada własną łazienkę, klimatyzację i widok na ogród. 
+                    W dwóch sypialniach istnieje możliwość wyboru jednego łóżka King-size lub dwóch pojedynczych.
+                </p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class="fas fa-coffee"></i>
+                </div>
+                <h3 data-translate="features-kitchentitle">Otwarty salon i kuchnia</h3>
+                <p data-translate="features-kitchentext">Pełny dostęp do kuchni i wspólnego salonu. Otwarta przestrzeń do gotowania, wypoczynku i spotkań.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class="fas fa-bread-slice"></i>
+                </div>
+                <h3 data-translate="features-breakfasttitle">Wyjątkowe śniadania</h3>
+                <p data-translate="features-breakfasttext">Nasz zespół przygotuje na życzenie lokalne i międzynarodowe śniadania z różnorodnego menu.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <h3 data-translate="features-gardentitle">Tropikalny Ogród</h3>
+                <p data-translate="features-gardentext">Niezwykły ogród z rzadkimi tropikalnymi roślinami otaczającymi basen oraz wysokie palmy kokosowe wokół posesji.
+                    </p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class="fas fa-water"></i>
+                </div>
+                <h3 data-translate="features-beachtitle">Plaża w pobliżu</h3>
+                <p data-translate="features-beachtext">Piaszczysta plaża 250m od willi. Spokojna plaża bez turystów, leżaków i sprzedawców. 
+                    Można tu oglądać widowiskowe zachody słońca lub bezpiecznie pływać w oceanie.
+                </p>
+                </div>
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class="fas fa-wifi"></i>
+                </div>
+                <h3 data-translate="features-internettitle">Internet światłowodowy</h3>
+                <p data-translate="features-internettext">Szerokopasmowy sygnał wifi na terenie całej posesji.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class="fas fa-user-friends"></i>
+                </div>
+                <h3 data-translate="features-servicetitle">Codzienny serwis sprzątający</h3>
+                <p data-translate="features-servicetext">Codzienna usługa sprzątania i asysta lokalnych pracowników w organizacji pobytu.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="section-title">
+            <h2 data-translate="gallery-title">Galeria</h2>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="Ayanta 1.jpg" alt="Pool and Garden" class="gallery-img">
+                <div class="gallery-overlay">
+                    <p data-translate="garden">Basen i ogród</p>
+                </div>
+            </div>
+             <div class="gallery-item">
+                <img src="Ayanta 2.jpg" alt="Pool and Garden" class="gallery-img">
+                <div class="gallery-overlay">
+                    <p data-translate="garden">Basen i ogród</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="Posesja.jpg" alt="Villa Overview" class="gallery-img">
+                <div class="gallery-overlay">
+                    <p data-translate="villa-overview">Widok na willę</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="Posesja 2.webp" alt="Villa Overview" class="gallery-img">
+                <div class="gallery-overlay">
+                    <p data-translate="villa-overview">Widok na willę</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="Ayanta noc.jpg" alt="Villa Overview" class="gallery-img">
+                <div class="gallery-overlay">
+                    <p data-translate="villa-overview">Widok na willę</p>
+                </div>
+            </div>
+           <div class="gallery-item">
+                <img src="Sypialnia 1.1.webp" alt="Bedroom" class="gallery-img">
+                <div class="gallery-overlay">
+                    <p data-translate="bedroom1">Sypialnia 1</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="Bathroom 1.1.webp" alt="Bathroom" class="gallery-img">
+                <div class="gallery-overlay">
+                    <p data-translate="bathroom1">Łazienka 1</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="Bathroom 1.2.webp" alt="Bathroom" class="gallery-img">
+                <div class="gallery-overlay">
+                    <p data-translate="bathroom1">Łazienka 1</p>
+                </div>
+            </div>
+             <div class="gallery-item">
+                <img src="Sypialnia 2.1.jpg" alt="Bedroom" class="gallery-img">
+                <div class="gallery-overlay">
+                    <p data-translate="bedroom2">Sypialnia 2</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="Sypialnia 2.2.jpg" alt="Bedroom" class="gallery-img">
+                <div class="gallery-overlay">
+                    <p data-translate="bedroom2">Sypialnia 2</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="Bathroom 2.1.jpg" alt="Bathroom" class="gallery-img">
+                <div class="gallery-overlay">
+                    <p data-translate="bathroom2">Łazienka 2</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="Bathroom 2.2.jpg" alt="Bathroom" class="gallery-img">
+                <div class="gallery-overlay">
+                    <p data-translate="bathroom2">Łazienka 2</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="Sypialnia 3.1.jpg" alt="Bedroom" class="gallery-img">
+                <div class="gallery-overlay">
+                    <p data-translate="bedroom3">Sypialnia 3</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="Sypialnia 3.2.jpg" alt="Bedroom" class="gallery-img">
+                <div class="gallery-overlay">
+                    <p data-translate="bedroom3">Sypialnia 3</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="Bathroom 3.1.jpg" alt="Bathroom" class="gallery-img">
+                <div class="gallery-overlay">
+                    <p data-translate="bathroom3">Łazienka 3</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="Bathroom 3.2.jpg" alt="Bathroom" class="gallery-img">
+                <div class="gallery-overlay">
+                    <p data-translate="bathroom3">Łazienka 3</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="Salon 1.webp" alt="Livingroom" class="gallery-img">
+                <div class="gallery-overlay">
+                    <p data-translate="livingroom">Salon</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="Salon 2.webp" alt="Livingroom" class="gallery-img">
+                <div class="gallery-overlay">
+                    <p data-translate="livingroom">Salon</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="Kuchnia 1.webp" alt="Kitchen" class="gallery-img">
+                <div class="gallery-overlay">
+                    <p data-translate="kitchen">Kuchnia</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="Breakfast.jpg" alt="Kitchen" class="gallery-img">
+                <div class="gallery-overlay">
+                    <p data-translate="breakfast">Śniadanie</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="Karangasem 1.jpg" alt="Karangasem" class="gallery-img">
+                <div class="gallery-overlay">
+                    <p data-translate="beach">Lokalna plaża</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="Karangasem 2.jpg" alt="Karangasem" class="gallery-img">
+                <div class="gallery-overlay">
+                    <p data-translate="karangasem">Karangasem</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="Karangasem 3.webp" alt="Karangasem" class="gallery-img">
+                <div class="gallery-overlay">
+                    <p data-translate="karangasem">Karangasem</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="Karangasem 4.webp" alt="Karangasem" class="gallery-img">
+                <div class="gallery-overlay">
+                    <p data-translate="karangasem">Karangasem</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="Karangasem 5.webp" alt="Karangasem" class="gallery-img">
+                <div class="gallery-overlay">
+                    <p data-translate="karangasem">Karangasem</p>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+   <footer id="contact">
+    <div class="footer-container">
+        <div class="section-title">
+            <h2 style="color: white;" data-translate="contact-title">Kontakt</h2>
+        </div>
+        
+        <!-- Contact Section -->
+        <div class="contact-intro">
+            <p data-translate="contact-subtitle0"><span style=" font-size: 1.1em; font-style: italic;">Aktualna cena pobytu za dobę (jedna sypialnia, do dwóch osób) to <span style="color: #fcc170;">230,00 zł</span>. Cena podlega zniżkom przy pobycie dłuższym, niż 10 dni. To powitalna oferta dla pierwszych gości z okazji otwarcia i jej czas jest ograniczony.</span></p>
+            <div class="contact-icon" style="text-align: center; float: none !important; margin: 20px auto;">
+                    <i class="fas fa-handshake"></i>
+                </div>
+                <p></p>
+            <p data-translate="contact-subtitle1">Jeśli masz pytania lub chcesz zarezerwować pobyt, skontaktuj się z nami przez:</p>
+        </div>
+        
+        <div class="contact-methods">
+            <div class="contact-method">
+                <div class="contact-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact-details">
+                    <h3>Email</h3>
+                    <a href="mailto:ayanta.bali@gmail.com">ayanta.bali@gmail.com</a>
+                </div>
+            </div>
+            <div class="contact-method">
+                <div class="contact-icon">
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+                <div class="contact-details">
+                    <h3>WhatsApp</h3>
+                    <a href="https://wa.me/48123456789">+62 87787651907</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Formularz na dole -->
+        <div class="contact-form-intro">
+            <p data-translate="contact-subtitle2">Lub skorzystaj z formularza:</p>
+        </div>
+        
+        <form class="contact-form" id="contactForm" onsubmit="return checkPrivacy()">
+            <!-- Cały formularz bez zmian -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="checkin" data-translate="contact-formcheckin">Data przyjazdu</label>
+                    <input type="date" id="checkin" name="checkin" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="checkout" data-translate="contact-formcheckout">Data wyjazdu</label>
+                    <input type="date" id="checkout" name="checkout" class="form-control" required>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="guests" data-translate="contact-formguests">Liczba gości</label>
+                    <select id="guests" name="guests" class="form-control" required>
+                        <option value="" data-translate="contact-formguests0">Wybierz liczbę gości</option>
+                        <option value="1" data-translate="contact-formguests1">1 osoba</option>
+                        <option value="2" data-translate="contact-formguests2">2 osoby</option>
+                        <option value="3" data-translate="contact-formguests3">3 osoby</option>
+                        <option value="4" data-translate="contact-formguests4">4 osoby</option>
+                        <option value="5" data-translate="contact-formguests5">5 osób</option>
+                        <option value="6" data-translate="contact-formguests6">6 osób</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="phone" data-translate="contact-formphone">Numer telefonu</label>
+                    <input type="tel" id="phone" name="phone" class="form-control" required>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="name" data-translate="contact-formname">Imię i nazwisko</label>
+                    <input type="text" id="name" name="name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="email" data-translate="contact-formemail">Email kontaktowy</label>
+                    <input type="email" id="email" name="email" class="form-control" required>
+                </div>
+            </div>
+            
+            <div class="form-group full-width">
+                <label for="notes" data-translate="contact-formnotes">Dodatkowe uwagi/życzenia</label>
+                <textarea id="notes" name="notes" class="form-control" rows="4" placeholder ="Opcjonalne dodatkowe informacje..." data-translate-placeholder="notes-placeholder"></textarea>></textarea>
+            </div>
+
+            <div class="privacy-consent">
+    <input type="checkbox" id="privacy" name="privacy" required>
+    <div class="privacy-text" data-translate="privacy-checkbox">
+        Oświadczam, że przeczytałem i akceptuję 
+        <span class="privacy-link" onclick="openPrivacyModal(event)">politykę prywatności</span> 
+        oraz wyrażam zgodę na przetwarzanie moich danych osobowych.*
+    </div>
+</div>
+
+            
+            <button type="submit" class="btn btn-submit" data-translate="contact-formsubmit">Wyślij zapytanie</button>
+            <div id="formMessage"></div>
+        </form>
+    </div>
+
+</footer>
+
+<!-- Struktura lightboxa z nawigacją -->
+<div class="lightbox" id="lightbox">
+    <span class="close-lightbox">&times;</span>
+    <div class="lightbox-content">
+        <img src="" alt="" class="lightbox-img" id="lightbox-img">
+        <div class="lightbox-nav">
+            <button class="lightbox-prev" id="lightbox-prev">&lsaquo;</button>
+            <button class="lightbox-next" id="lightbox-next">&rsaquo;</button>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    console.log("Skrypt ładuje się...");
+window.testFunction = function() { alert("Test działa!"); };
+
+// Funkcje modala
+
+
+function openPrivacyModal(event) {
+    if (event) {
+        event.stopPropagation();
+        event.preventDefault();
+    }
+    document.getElementById('privacyModal').classList.add('show');
+    document.body.style.overflow = 'hidden';
+}
+
+function closePrivacyModal() {
+    document.getElementById('privacyModal').classList.remove('show');
+    document.body.style.overflow = 'auto';
+}
+
+function checkPrivacy() {
+    if (!document.getElementById('privacy').checked) {
+        alert('Proszę zaakceptować politykę prywatności');
+        return false;
+    }
+    return true;
+}
+
+// Zamknij modal po kliknięciu poza nim
+window.onclick = function(event) {
+    const modal = document.getElementById('privacyModal');
+    if (event.target === modal) {
+        closePrivacyModal();
+    }
+}
+
+// Zamknij modal klawiszem ESC
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closePrivacyModal();
+    }
+});
+
+
+// Kontrola przycisku submit
+const privacyCheckbox = document.getElementById('privacy');
+const submitBtn = document.querySelector('[type="submit"]');
+
+// Ustaw przycisk jako wyłączony na start
+if (submitBtn) {
+    submitBtn.classList.add('disabled');
+}
+
+if (privacyCheckbox) {
+    privacyCheckbox.addEventListener('change', function() {
+        if (this.checked) {
+            submitBtn.classList.remove('disabled');
+        } else {
+            submitBtn.classList.add('disabled');
+        }
+    });
+}
+</script>
+            <!-- Dodaj ten kod JavaScript tuż przed zamknięciem tagu </body> -->
+            <script>
+                 document.addEventListener('DOMContentLoaded', function() {
+     // Znajdź wszystkie elementy gallery-item
+     const galleryItems = document.querySelectorAll('.gallery-item');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const closeBtn = document.querySelector('.close-lightbox');
+    const prevBtn = document.getElementById('lightbox-prev');
+    const nextBtn = document.getElementById('lightbox-next');
+    
+    // Zmienne do śledzenia aktualnego indeksu obrazu
+    let currentIndex = 0;
+    const images = [];
+    
+    // Zbierz wszystkie obrazy z galerii
+    galleryItems.forEach(item => {
+        const img = item.querySelector('.gallery-img');
+        if (img) {
+            images.push({
+                src: img.src,
+                alt: img.alt || ''
+            });
+        }
+    });
+    
+    // Funkcja do wyświetlania obrazu o określonym indeksie
+    function showImage(index) {
+        if (index >= 0 && index < images.length) {
+            currentIndex = index;
+            lightboxImg.src = images[index].src;
+            lightboxImg.alt = images[index].alt;
+        }
+    }
+    
+    // Dodaj obsługę kliknięcia dla każdego elementu galerii
+    galleryItems.forEach((item, index) => {
+        item.addEventListener('click', function() {
+            showImage(index);
+            lightbox.style.display = 'flex';
+        });
+    });
+    
+    // Obsługa przycisku "Poprzedni"
+    prevBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        let newIndex = currentIndex - 1;
+        if (newIndex < 0) {
+            newIndex = images.length - 1;  // Zapętlamy do ostatniego obrazu
+        }
+        showImage(newIndex);
+    });
+    
+    // Obsługa przycisku "Następny"
+    nextBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        let newIndex = currentIndex + 1;
+        if (newIndex >= images.length) {
+            newIndex = 0;  // Zapętlamy do pierwszego obrazu
+        }
+        showImage(newIndex);
+    });
+    
+    // Obsługa klawiszy strzałek
+    document.addEventListener('keydown', function(event) {
+        if (lightbox.style.display === 'flex') {
+            if (event.key === 'ArrowLeft') {
+                prevBtn.click();
+            } else if (event.key === 'ArrowRight') {
+                nextBtn.click();
+            } else if (event.key === 'Escape') {
+                lightbox.style.display = 'none';
+            }
+        }
+    });
+
+    // Zamknij lightbox po kliknięciu przycisku zamknięcia
+    closeBtn.addEventListener('click', function() {
+        lightbox.style.display = 'none';
+    });
+
+    // Zamknij lightbox po kliknięciu poza obrazem
+    lightbox.addEventListener('click', function(event) {
+        if (event.target === lightbox) {
+            lightbox.style.display = 'none';
+        }
+    });
+});
+
+    document.addEventListener('DOMContentLoaded', function() {
+    // Pobierz elementy menu
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    
+    // Utwórz overlay (półprzezroczystą warstwę)
+    const overlay = document.createElement('div');
+    overlay.className = 'nav-overlay';
+    document.body.appendChild(overlay);
+    
+    // Funkcja otwierająca menu
+    function openMenu() {
+        navLinks.classList.add('active');
+        overlay.classList.add('active');
+    }
+    
+    // Funkcja zamykająca menu
+    function closeMenu() {
+        navLinks.classList.remove('active');
+        overlay.classList.remove('active');
+    }
+    
+    // Obsługa kliknięcia hamburger
+    hamburger.addEventListener('click', function(e) {
+        e.preventDefault(); // Zapobiega domyślnej akcji
+        e.stopPropagation(); // Zapobiega propagacji zdarzenia
+        
+        if (navLinks.classList.contains('active')) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
+    });
+    
+    // Zamykanie menu po kliknięciu na overlay
+    overlay.addEventListener('click', function() {
+        closeMenu();
+    });
+    
+    // Zamykanie menu po kliknięciu w link
+    const menuLinks = document.querySelectorAll('.nav-links a');
+    menuLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            closeMenu();
+        });
+    });
+    
+    // Naprawa problemu ze scrollem po odświeżeniu strony
+    if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+    }
+    
+    // Ustaw pozycję scrolla na górze przy ładowaniu strony
+    window.addEventListener('load', function() {
+        setTimeout(function() {
+            window.scrollTo(0, 0);
+        }, 0);
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const languageBtn = document.querySelector('.language-btn');
+    const languageDropdown = document.querySelector('.language-dropdown');
+    
+    // Obsługa kliknięcia przycisku języka
+    languageBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation(); // Zapobiega propagacji zdarzenia
+        
+        // Znajdź ikonę strzałki
+        const chevronIcon = this.querySelector('.fa-chevron-down, .fa-chevron-up');
+        
+        // Toggle dropdown
+        languageDropdown.classList.toggle('active');
+        
+        // Obróć strzałkę
+        if (languageDropdown.classList.contains('active')) {
+            chevronIcon.classList.replace('fa-chevron-down', 'fa-chevron-up');
+        } else {
+            chevronIcon.classList.replace('fa-chevron-up', 'fa-chevron-down');
+        }
+    });
+    
+    // Zamknij dropdown po kliknięciu w opcję języka
+    const languageOptions = document.querySelectorAll('.language-dropdown a');
+    languageOptions.forEach(option => {
+        option.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Ustaw aktywną klasę na wybraną opcję
+            languageOptions.forEach(opt => opt.classList.remove('active'));
+            this.classList.add('active');
+            
+            // Zamknij dropdown
+            languageDropdown.classList.remove('active');
+            
+            // Upewnij się, że strzałka wraca do pozycji w dół
+            const chevronIcon = languageBtn.querySelector('.fa-chevron-up');
+            if (chevronIcon) {
+                chevronIcon.classList.replace('fa-chevron-up', 'fa-chevron-down');
+            }
+            
+            // Tutaj możesz dodać logikę zmiany języka strony
+            console.log(`Zmieniono język na: ${this.textContent}`);
+        });
+    });
+    
+    // Zamknij dropdown po kliknięciu poza nim
+    document.addEventListener('click', function(e) {
+        if (!languageBtn.contains(e.target) && !languageDropdown.contains(e.target)) {
+            languageDropdown.classList.remove('active');
+            const chevronIcon = languageBtn.querySelector('.fa-chevron-up');
+            if (chevronIcon) {
+                chevronIcon.classList.replace('fa-chevron-up', 'fa-chevron-down');
+            }
+        }
+    });
+});
+</script>
+
+<script type="text/javascript">
+  (function(){
+    emailjs.init("C0cxb2vQsdDaA_gXg");
+  })();
+</script>
+
+<script>
+  document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Zapobiega przeładowaniu strony
+    emailjs.sendForm('service_dj5168e', 'template_kdcwfkf', this)
+      .then(function() {
+        document.getElementById('formMessage').innerHTML = translator.translate('form-success');
+        document.getElementById('formMessage').className = 'success';
+        document.getElementById('contactForm').reset();
+      }, function(error) {
+        document.getElementById('formMessage').innerHTML = translator.translate('form-error') + JSON.stringify(error);
+        document.getElementById('formMessage').className = 'error';
+      });
+  });
+</script>
+
+<script>
+class LanguageTranslator {
+    constructor() {
+        
+        this.currentLang = 'en'; // Domyślny język
+        this.translations = {
+            'pl': {
+                // Tutaj będą Twoje tłumaczenia po polsku
+                'main-title': 'Ayanta Bali | Miejsce odnowy',
+                'nav-about': 'O Willi',
+                'nav-features': 'Usługi i Udogodnienia',
+                'nav-gallery': 'Galeria',
+                'nav-location': 'Lokalizacja',
+                'nav-contact': 'Kontakt',
+                'hero-subtitle': 'Wypoczynek w raju',
+                'hero-title': 'Twoja Oaza Na Rajskim Bali',
+                'hero-description': 'Odkryj wyjątkową przestrzeń, gdzie nowoczesny standard i komfort spotyka się z balijską tradycją, tworząc niepowtarzalny klimat regeneracji, spokoju i harmonii.',
+                'hero-contact': 'Skontaktuj się',
+                'more-arrow': 'Odkryj więcej',
+                'about-title': 'Willa Ayanta',
+                'about-subtitle': 'Magia w sercu tropikalnego raju',
+                'about-text1': 'Ayanta to miejsce stworzone z intencją ukojenia codziennego szumu i powrotu do wewnętrznej harmonii. Wtopiona w rytm balijskiej ziemi, łączy elegancję nowoczesnych form z pięknem lokalnej tradycji. Jej sercem jest basen z ogrodem w hinduistycznym stylu — przestrzeń rytuału i oddechu. Czasem można tu usłyszeć ocean, którego złocista otwarta plaża jest zaledwie 3 minuty spacerem od posesji. Każdy element tej przestrzeni został dobrany nie tylko dla komfortu ciała, ale też z myślą o delikatnej duchowej przemianie. Naturalne materiały, ręcznie tworzone meble i światło sączące się przez tropikalną zieleń współtworzą tu atmosferę zapraszającą Cię do zatrzymania, wsłuchania się i odnowy.',
+                'about-text2': 'W naszej willi mieszczą się trzy niezależne sypialnie z prywatnymi łazienkami. Piękny basen, przytulny salon oraz w pełni wyposażona kuchnia to otwarta współdzielona przestrzeń, gdzie spotykają się ludzkie historie i gdzie wszyscy oddychają wspólnym harmonijnym rytmem. W razie rezerwacji wszystkich trzech sypialni cały kompleks jest na Twoją wyłączność. Ayanta nie jest zwykłym noclegiem - jest świątynią odpoczynku, miejscem, które skłania do wyciszenia i kontaktu z subtelnym wewnętrznym głosem.',
+                'about-button': 'Zobacz galerię',
+                'location-title': 'Lokalizacja',
+                'location-subtitle': 'Karangasem - Spokój i tradycyjny duch Bali na wschodniej części wyspy',
+                'location-text1': 'Wschodnia część Bali łączy w sobie tradycyjną balijską kulturę z nowoczesnym komfortem. W przeciwieństwie do zachodniej przeciążonej turystyką strony panuje tu zauważalny spokój, a turyści mają więcej przestrzeni i prywatności. Złote plaże nie są przeludnione, jest więcej naturalnej zieleni, a lokalni ludzie są przyjaźni i pomocni. Ocean jest spokojny i pozwala na pływanie. Są tu również najlepsze na Bali oraz słynne na całym świecie miejsca do snorkelingu i nurkowania.',
+                'location-text2': 'To bardzo dobre miejsce na poznanie lokalnej tradycyjnej kuchni, bycie świadkiem wielkich religijnych ceremonii, czy zwiedzanie bajkowych wodospadów i pięknych świątyń. Znajduje się tu również największy na Bali wulkan Agung, z którego szczytu można oglądać jedyny w swoim rodzaju wschód słońca.',
+                'location-text3': 'To dobry wybór dla osób, które chcą wypocząć w rajskim środowisku, relaksować się w basenie lub oceanie i pójść wieczorem do restauracji lub pubu z muzyką na żywo. To miejsce dla tych, którzy cenią spokój i autentyczność — z dala od głośnych klubów, blisko natury i lokalnej kultury. Nasz rejon jest dobrą bazą, do której wraca się odpocząć po intensywnym zwiedzaniu zaplanowanych atrakcji i długich wycieczkach.',
+                'location-button': 'Zobacz galerię',
+                'features-title': 'Twój pobyt w willi Ayanta zawiera',
+                'features-pooltitle': 'Luksusowy basen',
+                'features-pooltext': 'Duży basen idealnie nadaje się do relaksu i ochłody w tropikalnym klimacie. Dzięki bezpiecznej głębokości, strefie dla dzieci i akcesoriom do pływania jest dostosowany do każdego.',
+                'features-bedroomtitle': '3 komfortowe sypialnie',
+                'features-bedroomtext': 'Każda sypialnia posiada własną łazienkę, klimatyzację i widok na ogród. W dwóch sypialniach istnieje możliwość wyboru jednego łóżka King-size lub dwóch pojedynczych.',
+                'features-kitchentitle': 'Otwarty salon i kuchnia',
+                'features-kitchentext': 'Pełny dostęp do kuchni i wspólnego salonu. Otwarta przestrzeń do gotowania, wypoczynku i spotkań.',
+                'features-breakfasttitle': 'Wyjątkowe śniadania',
+                'features-breakfasttext': 'Nasz zespół przygotuje na życzenie lokalne i międzynarodowe śniadania z różnorodnego menu.',
+                'features-gardentitle': 'Tropikalny Ogród',
+                'features-gardentext': 'Niezwykły ogród z rzadkimi tropikalnymi roślinami otaczającymi basen oraz wysokie palmy kokosowe wokół posesji.',
+                'features-beachtitle': 'Plaża w pobliżu',
+                'features-beachtext': 'Piaszczysta plaża 250m od willi. Spokojna plaża bez turystów, leżaków i sprzedawców. Można tu oglądać widowiskowe zachody słońca lub bezpiecznie pływać w oceanie.',
+                'features-internettitle': 'Internet światłowodowy',
+                'features-internettext': 'Szerokopasmowy sygnał wifi na terenie całej posesji.',
+                'features-servicetitle': 'Codzienny serwis sprzątający',
+                'features-servicetext': 'Codzienna usługa sprzątania i asysta lokalnych pracowników w organizacji pobytu.',
+                'gallery-title': 'Galeria',
+                'garden': 'Basen i ogród',
+                'villa-overview': 'Widok na willę',
+                'bedroom1': 'Sypialnia 1',
+                'bathroom1': 'Łazienka 1',
+                'bedroom2': 'Sypialnia 2',
+                'bathroom2': 'Łazienka 2',
+                'bedroom3': 'Sypialnia 3',
+                'bathroom3': 'Łazienka 3',
+                'livingroom': 'Salon',
+                'kitchen': 'Kuchnia',
+                'breakfast': 'Śniadanie',
+                'beach': 'Lokalna plaża',
+                'karangasem': 'Karangasem',
+                '': '',
+                'contact-title': 'Kontakt',
+                'contact-subtitle0': '<span style=" font-size: 1.1em; font-style: italic;">Aktualna cena pobytu za dobę (jedna sypialnia, do dwóch osób) to <span style="color: #fcc170;">230,00 zł</span>. Cena podlega zniżkom przy pobycie dłuższym, niż 10 dni. To powitalna oferta dla pierwszych gości z okazji otwarcia i jej czas jest ograniczony.</span>',
+                'contact-subtitle1': 'Jeśli masz pytania lub chcesz zarezerwować pobyt, skontaktuj się z nami przez:',
+                'contact-subtitle2': 'Lub skorzystaj z formularza:',
+                'contact-formcheckin': 'Data przyjazdu',
+                'contact-formcheckout': 'Data wyjazdu',
+                'contact-formguests': 'Liczba gości',
+                'contact-formguests0': 'Wybierz liczbę gości',
+                'contact-formguests1': '1 osoba',
+                'contact-formguests2': '2 osoby',
+                'contact-formguests3': '3 osoby',
+                'contact-formguests4': '4 osoby',
+                'contact-formguests5': '5 osób',
+                'contact-formguests6': '6 osób',
+                'contact-formphone': 'Numer telefonu',
+                'contact-formname': 'Imię i nazwisko',
+                'contact-formemail': 'Email kontaktowy',
+                'contact-formnotes': 'Dodatkowe uwagi/życzenia',
+                'notes-placeholder': 'Opcjonalne dodatkowe informacje...',
+                'contact-formsubmit': 'Wyślij zapytanie',
+                'form-success': 'Wiadomość wysłana pomyślnie!',
+                'form-error': 'Wystąpił błąd. Wiadomość nie została wysłana',
+                '': '',
+                'privacy-checkbox': 'Oświadczam, że przeczytałem i akceptuję <span class="privacy-link" onclick="openPrivacyModal(event)">politykę prywatności</span> oraz wyrażam zgodę na przetwarzanie moich danych osobowych.*',
+                'privacy-policy': 'Polityka prywatności',
+                'privacy-policy-content': '<h3>1. Administrator danych osobowych</h3><p>Administratorem Państwa danych osobowych jest I Nyoman Arta; Ayanta Bali, Nyuh Tebel, jl raya Candidasa, Manggis, Karangasem, Bali 80871; e-mail: ayanta.bali@gmail.com; tel: +62 87787651907.</p><h3>2. Podstawa prawna przetwarzania</h3><p>Przetwarzamy Państwa dane osobowe na podstawie:</p><ul><li>Art. 6 ust. 1 lit. a RODO – zgoda użytkownika na przetwarzanie danych w formularzu kontaktowym.</li><li>Art. 6 ust. 1 lit. f RODO – prawnie uzasadniony interes administratora (odpowiadanie na zapytania dotyczące rezerwacji).</li></ul><h3>3. Cele przetwarzania danych</h3><p>Przetwarzamy Państwa dane osobowe w celu:</p><ul><li>Obsługi zapytań dotyczących rezerwacji willi.</li><li>Komunikacji z potencjalnymi gośćmi.</li><li>Analizy ruchu na stronie (za zgodą, przy użyciu cookies).</li></ul><h3>4. Kategorie przetwarzanych danych</h3><p>Przetwarzamy następujące kategorie danych osobowych:</p><ul><li>Dane identyfikacyjne (imię, nazwisko).</li><li>Dane kontaktowe (e-mail, telefon).</li></ul><h3>5. Okres przechowywania danych</h3><p>Dane osobowe przechowujemy przez czas niezbędny do udzielenia odpowiedzi na zapytanie, maksymalnie 1 rok, chyba że użytkownik wyrazi zgodę na dłuższe przechowywanie.</p><h3>6. Odbiorcy danych</h3><p>Państwa dane osobowe mogą być przekazywane:</p><ul><li>Dostawcy usług hostingowych (Home.pl).</li><li>Dostawcy usług e-mail (np. Google).</li><li>Dostawcy narzędzi analitycznych (np. Google Analytics, za zgodą).</li><li>Organom państwowym, jeśli wymaga tego prawo.</li></ul><h3>7. Przekazywanie danych do państw trzecich</h3><p>Dane mogą być przekazywane do państw trzecich (np. USA) w związku z użyciem Google Analytics. Zapewniamy odpowiedni poziom ochrony zgodnie z RODO, stosując standardowe klauzule umowne.</p><h3>8. Prawa osób, których dane dotyczą</h3><p>Przysługują Państwu następujące prawa:</p><ul><li><strong>Prawo dostępu</strong> – do informacji o przetwarzanych danych.</li><li><strong>Prawo do sprostowania</strong> – poprawy nieprawidłowych danych.</li><li><strong>Prawo do usunięcia</strong> – „prawo do bycia zapomnianym”.</li><li><strong>Prawo do ograniczenia przetwarzania</strong> – w określonych sytuacjach.</li><li><strong>Prawo do przenoszenia danych</strong> – otrzymania danych w formacie strukturalnym.</li><li><strong>Prawo do sprzeciwu</strong> – wobec przetwarzania na podstawie prawnie uzasadnionego interesu.</li><li><strong>Prawo do cofnięcia zgody</strong> – w każdej chwili, bez wpływu na dotychczasowe przetwarzanie.</li><li><strong>Prawo do wniesienia skargi</strong> – do Prezesa Urzędu Ochrony Danych Osobowych.</li></ul><h3>9. Bezpieczeństwo danych</h3><p>Stosujemy środki techniczne i organizacyjne zapewniające bezpieczeństwo danych, w tym:</p><ul><li>Szyfrowanie danych (HTTPS).</li><li>Regularne kopie zapasowe.</li><li>Ograniczenie dostępu do danych.</li></ul><h3>10. Cookies i technologie śledzące</h3><p>Strona używa plików cookies w celu:</p><ul><li>Zapewnienia prawidłowego funkcjonowania strony.</li><li>Analizy ruchu (Google Analytics, za zgodą użytkownika).</li></ul><p>Możesz zarządzać ustawieniami cookies w przeglądarce lub wyrazić zgodę poprzez baner cookies na stronie.</p><h3>11. Kontakt w sprawach ochrony danych</h3><p>W sprawach dotyczących danych osobowych można się kontaktować:</p><ul><li>E-mail: ayanta.bali@gmail.com</li><li>Telefon: +62 87787651907</li><li>Adres korespondencyjny: Ayanta Bali, Nyuh Tebel, jl raya Candidasa, Manggis, Karangasem, Bali 80871</li></ul><h3>12. Zmiany polityki prywatności</h3><p>Zastrzegamy prawo do zmiany polityki prywatności. O zmianach poinformujemy na stronie.</p><p><strong>Polityka obowiązuje od 01.07.2025.</strong></p><hr style="margin: 25px 0; border: none; border-top: 1px solid #ddd;"><h3>13. Informacje dla gości z UE</h3><p>Jeśli jesteś rezydentem UE, przysługują Ci prawa wynikające z RODO. W razie pytań skontaktuj się z nami: ayanta.bali@gmail.com.</p><p style="font-size: 12px; color: #888; margin-top: 30px;"> Ostatnia aktualizacja: 01.07.2025</p>',
+            },
+            'en': {
+                // Tutaj będą Twoje tłumaczenia po angielsku
+                'main-title': 'Ayanta Bali | A Place of Inner Renewal',
+                'nav-about': 'About the Villa',
+                'nav-features': 'Amenities & Services',
+                'nav-gallery': 'Gallery',
+                'nav-location': 'Location',
+                'nav-contact': 'Contact',
+                'hero-subtitle': 'A Paradise Retreat',
+                'hero-title': 'Your Oasis on Magical Bali',
+                'hero-description': 'Discover a unique space where modern comfort meets Balinese tradition, creating an atmosphere of revitalization, tranquility, and harmony.',
+                'hero-contact': 'Contact Us',
+                'more-arrow': 'Discover More',
+                'about-title': 'Villa Ayanta',
+                'about-subtitle': 'Magic in the Heart of a Tropical Paradise',
+                'about-text1': 'Ayanta was created with the intention of soothing daily noise and guiding you back to inner harmony. Immersed in the rhythm of Balinese earth, it blends elegant modern design with the beauty of local tradition. At its heart lies a Hindu-style garden pool — a space for ritual and breath. Sometimes you can hear the ocean, with its golden, open beach just a 3-minute walk away. Every element here was chosen not only for physical comfort but also to inspire a gentle inner transformation. Natural materials, handcrafted furniture, and light filtering through tropical greenery create an atmosphere inviting you to pause, listen deeply, and heal.',
+                'about-text2': 'Our villa offers three separate bedrooms, each with a private bathroom. The beautiful pool, cozy living area, and fully equipped kitchen are a shared open space where lives and stories intertwine and everyone breathes in a gentle, harmonious rhythm. If you book all three rooms, the entire residence is yours exclusively. Ayanta is more than just accommodation — it is a sanctuary of rest, a place that invites you to quiet down and reconnect with your subtle inner voice.',
+                'about-button': 'View Gallery',
+                'location-title': 'Location',
+                'location-subtitle': 'Karangasem – Serenity and Traditional Balinese Spirit in the East',
+                'location-text1': 'East Bali combines traditional Balinese culture with modern comfort. Unlike the crowded western side, here you’ll find noticeable peace, more space and privacy for guests. Golden beaches are uncrowded, lush greenery abounds, and the local people are warm and welcoming. The ocean is calm and perfect for swimming. Here you’ll also find Bali’s best and world-famous spots for snorkeling and diving.',
+                'location-text2': 'This is a wonderful place to experience authentic local cuisine, witness grand religious ceremonies, and explore magical waterfalls and beautiful temples. Here you’ll also find Mount Agung — Bali’s tallest volcano, from whose summit you can watch a sunrise like nowhere else on earth.',
+                'location-text3': 'It’s the perfect choice for those seeking to relax in a paradise setting, enjoying the pool or ocean by day, and dining in local restaurants or listening to live music at night. A place for those who value peace and authenticity — far from loud clubs, close to nature and local culture. Our area is an ideal base to return to after busy days exploring Bali’s treasures and long adventures.',
+                'location-button': 'View Gallery',
+                'features-title': 'What’s included during your stay',
+                'features-pooltitle': 'Spacious swimming pool',
+                'features-pooltext': 'Perfect for cooling off or relaxing in the tropical heat. Safe depth, kids area and floaties make it enjoyable for all ages.',
+                'features-bedroomtitle': '3 comfortable bedrooms',
+                'features-bedroomtext': 'Each room has its own bathroom, air conditioning, and garden view. In two of our bedrooms you can choose one king-size bed or two singles.',
+                'features-kitchentitle': 'Open living area & kitchen',
+                'features-kitchentext': 'Fully equipped kitchen and cozy shared living space — great for cooking, relaxing and connecting.',
+                'features-breakfasttitle': 'Delicious breakfasts',
+                'features-breakfasttext': 'Local or international breakfast prepared fresh on request from our diverse menu.',
+                'features-gardentitle': 'Tropical garden',
+                'features-gardentext': 'A lush garden filled with rare tropical plants and tall coconut palms surrounding the villa.',
+                'features-beachtitle': 'Beach nearby',
+                'features-beachtext': 'Only 250 meters away — a quiet, sandy beach without crowds or vendors. Perfect for sunsets and safe swimming.',
+                'features-internettitle': 'High-speed internet',
+                'features-internettext': 'Reliable fiber-optic Wi-Fi throughout the villa and garden.',
+                'features-servicetitle': 'Daily housekeeping',
+                'features-servicetext': 'Daily cleaning service and local assistance for anything you may need.',
+                'gallery-title': 'Gallery',
+                'garden': 'Pool and Garden',
+                'villa-overview': 'Villa overview',
+                'bedroom1': 'Bedroom 1',
+                'bathroom1': 'Bathroom 1',
+                'bedroom2': 'Bedroom 2',
+                'bathroom2': 'Bathroom 2',
+                'bedroom3': 'Bedroom 3',
+                'bathroom3': 'Bathroom 3',
+                'livingroom': 'Living room',
+                'kitchen': 'Kitchen',
+                'breakfast': 'Breakfast',
+                'beach': 'Local Beach',
+                'karangasem': 'Karangasem',
+                '': '',
+                'contact-title': 'Contact',
+                'contact-subtitle0': '<span style=" font-size: 1.1em; font-style: italic;">The current price per night (one bedroom, up to two guests) is <span style="color: #fcc170;">$64,00</span>. Discounts apply for stays longer than 10 days. This is a welcome offer for our first guests to celebrate the opening, and it is available for a limited time only.</span>',
+                'contact-subtitle1': 'If you have any questions or would like to book your stay, feel free to contact us:',
+                'contact-subtitle2': 'Or fill out the form below:',
+                'contact-formcheckin': 'Check-in date',
+                'contact-formcheckout': 'Check-out date',
+                'contact-formguests': 'Number of guests',
+                'contact-formguests0': 'Select number of guests:',
+                'contact-formguests1': '1 guest',
+                'contact-formguests2': '2 guests',
+                'contact-formguests3': '3 guests',
+                'contact-formguests4': '4 guests',
+                'contact-formguests5': '5 guests',
+                'contact-formguests6': '6 guests',
+                'contact-formphone': 'Phone number',
+                'contact-formname': 'Full name',
+                'contact-formemail': 'Contact email',
+                'contact-formnotes': 'Additional requests or comments (optional)',
+                'notes-placeholder': 'Optional additional informations...',
+                'contact-formsubmit': 'Send inquiry',
+                'form-success': 'Message sent successfully!',
+                'form-error': 'An error occurred. Your message could not be sent.',
+                '': '',
+                'privacy-checkbox': 'I declare that I have read and accept the <span class="privacy-link" onclick="openPrivacyModal(event)">privacy policy</span> and consent to the processing of my personal data.*',
+                'privacy-policy': 'Privacy Policy',
+                'privacy-policy-content': '<h3>1. Data Controller</h3> <p>The controller of your personal data is I Nyoman Arta; Ayanta Bali, Nyuh Tebel, Jl Raya Candidasa, Manggis, Karangasem, Bali 80871; email: ayanta.bali@gmail.com; phone: +62 87787651907.</p> <h3>2. Legal Basis for Processing</h3> <p>We process your personal data based on:</p> <ul> <li>Art. 6(1)(a) of the GDPR – your consent given via the contact form.</li> <li>Art. 6(1)(f) of the GDPR – our legitimate interest (responding to inquiries related to villa bookings).</li> </ul> <h3>3. Purposes of Data Processing</h3> <p>We process your personal data for the following purposes:</p> <ul> <li>Handling inquiries related to villa reservations.</li> <li>Communication with potential guests.</li> <li>Website traffic analysis (with your consent, using cookies).</li> </ul> <h3>4. Categories of Processed Data</h3> <p>We process the following categories of personal data:</p> <ul> <li>Identification data (first and last name).</li> <li>Contact details (email, phone number).</li> </ul> <h3>5. Data Retention Period</h3> <p>We retain your personal data for as long as necessary to respond to your inquiry, for a maximum of 1 year, unless you give consent for longer storage.</p> <h3>6. Data Recipients</h3> <p>Your personal data may be shared with:</p> <ul> <li>Hosting service providers (e.g. Home.pl).</li> <li>Email service providers (e.g. Google).</li> <li>Analytics tool providers (e.g. Google Analytics, with your consent).</li> <li>Public authorities, if required by law.</li> </ul> <h3>7. Transfer of Data to Third Countries</h3> <p>Your data may be transferred to third countries (e.g., the USA) in connection with the use of Google Analytics. We ensure an adequate level of data protection in line with the GDPR by using standard contractual clauses.</p> <h3>8. Your Rights</h3> <p>You have the following rights under the GDPR:</p> <ul> <li><strong>Right of access</strong> – to obtain information about your processed data.</li> <li><strong>Right to rectification</strong> – to correct inaccurate data.</li> <li><strong>Right to erasure</strong> – the “right to be forgotten.”</li> <li><strong>Right to restriction of processing</strong> – in certain circumstances.</li> <li><strong>Right to data portability</strong> – to receive your data in a structured format.</li> <li><strong>Right to object</strong> – to processing based on legitimate interests.</li> <li><strong>Right to withdraw consent</strong> – at any time, without affecting prior processing.</li> <li><strong>Right to lodge a complaint</strong> – with the relevant data protection authority.</li> </ul> <h3>9. Data Security</h3> <p>We apply technical and organizational measures to ensure data security, including:</p> <ul> <li>Data encryption (HTTPS).</li> <li>Regular data backups.</li> <li>Restricted access to personal data.</li> </ul> <h3>10. Cookies and Tracking Technologies</h3> <p>This website uses cookies to:</p> <ul> <li>Ensure the proper functioning of the site.</li> <li>Analyze website traffic (via Google Analytics, with your consent).</li> </ul> <p>You can manage your cookie preferences in your browser settings or through the cookie banner on the website.</p> <h3>11. Contact Regarding Data Protection</h3> <p>If you have any questions regarding personal data, you can contact us via:</p> <ul> <li>Email: ayanta.bali@gmail.com</li> <li>Phone: +62 87787651907</li> <li>Mailing address: Ayanta Bali, Nyuh Tebel, Jl Raya Candidasa, Manggis, Karangasem, Bali 80871</li> </ul> <h3>12. Changes to the Privacy Policy</h3> <p>We reserve the right to update this privacy policy. Any changes will be announced on this website.</p> <p><strong>This policy is effective as of July 1, 2025.</strong></p> <hr style="margin: 25px 0; border: none; border-top: 1px solid #ddd;"> <h3>13. Information for EU Visitors</h3> <p>If you are a resident of the European Union, you have rights under the GDPR. If you have any questions, please contact us at: ayanta.bali@gmail.com.</p> <p style="font-size: 12px; color: #888; margin-top: 30px;"> Last updated: July 1, 2025 </p>',
+            },
+            'de': {
+                // Tutaj będą Twoje tłumaczenia po niemiecku
+                'main-title': 'Ayanta Bali | Ein Ort innerer Erneuerung',
+                'nav-about': 'Über die Villa',
+                'nav-features': 'Ausstattung & Service',
+                'nav-gallery': 'Galerie',
+                'nav-location': 'Lage',
+                'nav-contact': 'Kontakt',
+                'hero-subtitle': 'Eine Oase im Paradies',
+                'hero-title': 'Deine Oase auf dem magischen Bali',
+                'hero-description': 'Entdecke einen einzigartigen Ort, an dem moderner Komfort auf balinesische Tradition trifft und eine Atmosphäre der Erneuerung, Ruhe und Harmonie entsteht.',
+                'hero-contact': 'Kontaktiere uns',
+                'more-arrow': 'Mehr entdecken',
+                'about-title': 'Villa Ayanta',
+                'about-subtitle': 'Magie im Herzen des tropischen Paradieses',
+                'about-text1': 'Ayanta wurde mit der Intention geschaffen, den Lärm des Alltags zu besänftigen und dich zurück zu deiner inneren Harmonie zu führen. Eingebettet in den Rhythmus der balinesischen Erde vereint sie elegante moderne Formen mit der Schönheit lokaler Tradition. Ihr Herzstück ist ein Gartenpool im hinduistischen Stil – ein Raum für Rituale und Atem. Manchmal hört man hier das Meer, dessen goldener, offener Strand nur 3 Gehminuten entfernt liegt. Jedes Detail dieses Ortes wurde nicht nur für den körperlichen Komfort gewählt, sondern auch, um eine sanfte innere Wandlung zu inspirieren. Natürliche Materialien, handgefertigte Möbel und Licht, das durch tropisches Grün fließt, schaffen eine Atmosphäre, die dich einlädt, innezuhalten, tief zu lauschen und zu heilen.',
+                'about-text2': 'Unsere Villa verfügt über drei separate Schlafzimmer, jedes mit eigenem Bad. Der wunderschöne Pool, der gemütliche Wohnbereich und die voll ausgestattete Küche bilden einen offenen Raum, in dem sich Leben und Geschichten verweben und alle in einem sanften, harmonischen Rhythmus atmen. Wenn du alle drei Zimmer buchst, gehört die gesamte Residenz exklusiv dir. Ayanta ist mehr als nur eine Unterkunft – es ist ein Zufluchtsort der Ruhe, ein Ort, der dazu einlädt, still zu werden und wieder in Kontakt mit deiner feinen inneren Stimme zu treten.',
+                'about-button': 'Galerie ansehen',
+                'location-title': 'Lage',
+                'location-subtitle': 'Karangasem – Stille und balinesischer Geist im Osten der Insel',
+                'location-text1': 'Ostbali vereint traditionelle balinesische Kultur mit modernem Komfort. Anders als der überfüllte Westen findest du hier spürbare Ruhe, mehr Raum und Privatsphäre für Gäste. Goldene Strände sind nicht überlaufen, üppiges Grün ist allgegenwärtig und die Einheimischen sind herzlich und hilfsbereit. Das Meer ist ruhig und perfekt zum Schwimmen. Hier gibt es auch die besten Schnorchel- und Tauchplätze Balis, die weltweit bekannt sind.',
+                'location-text2': 'Dies ist ein wunderbarer Ort, um authentische lokale Küche zu entdecken, große religiöse Zeremonien zu erleben oder magische Wasserfälle und wunderschöne Tempel zu erkunden. Hier findest du auch den Mount Agung – Balis höchsten Vulkan, von dessen Gipfel man einen Sonnenaufgang sehen kann, wie es ihn nirgendwo sonst auf der Welt gibt.',
+                'location-text3': 'Ein perfekter Ort für alle, die in einer paradiesischen Umgebung entspannen, tagsüber im Pool oder Meer baden und abends lokale Restaurants oder Live-Musik genießen möchten. Ein Ort für jene, die Ruhe und Authentizität schätzen – fern von lauten Clubs, nah an der Natur und der lokalen Kultur. Unsere Region ist die ideale Basis, um nach ereignisreichen Tagen voller Entdeckungen und langer Ausflüge zur Ruhe zu kommen.',
+                'location-button': 'Zur Galerie',
+                'features-title': 'Das erwartet dich in der Villa Ayanta',
+                'features-pooltitle': 'Großer Pool',
+                'features-pooltext': 'Ein geräumiger Pool zum Abkühlen und Entspannen. Mit sicherer Tiefe, Kinderbereich und Schwimmutensilien für jedes Alter.',
+                'features-bedroomtitle': '3 gemütliche Schlafzimmer',
+                'features-bedroomtext': 'Jedes Schlafzimmer verfügt über ein eigenes Bad, Klimaanlage und Gartenblick. In zwei Zimmern wahlweise mit Kingsize-Bett oder zwei Einzelbetten.',
+                'features-kitchentitle': 'Offener Wohn- & Essbereich',
+                'features-kitchentext': 'Voll ausgestattete Küche und gemeinsames Wohnzimmer – perfekt zum Kochen, Entspannen und Zusammensitzen.',
+                'features-breakfasttitle': 'Besonderes Frühstück',
+                'features-breakfasttext': 'Auf Wunsch bereitet unser Team lokale und internationale Frühstücksvarianten aus einer vielseitigen Speisekarte zu.',
+                'features-gardentitle': 'Tropischer Garten',
+                'features-gardentext': 'Ein üppiger Garten mit seltenen tropischen Pflanzen rund um den Pool und hohen Kokospalmen auf dem Grundstück.',
+                'features-beachtitle': 'Strand in der Nähe',
+                'features-beachtext': 'Nur 250 m entfernt liegt ein ruhiger Sandstrand – frei von Touristen, Verkäufern oder Liegen. Ideal zum Schwimmen oder für atemberaubende Sonnenuntergänge.',
+                'features-internettitle': 'Schnelles WLAN',
+                'features-internettext': 'Stabiles Glasfaser-WLAN im gesamten Bereich der Villa.',
+                'features-servicetitle': 'Täglicher Reinigungsservice',
+                'features-servicetext': 'Tägliche Reinigung sowie Unterstützung durch unser lokales Team bei der Organisation deines Aufenthalts.',
+                'gallery-title': 'Galerie',
+                'garden': 'Pool und Garten',
+                'villa-overview': 'Überblick über die Villa',
+                'bedroom1': 'Schlafzimmer 1',
+                'bathroom1': 'Badezimmer 1',
+                'bedroom2': 'Schlafzimmer 2',
+                'bathroom2': 'Badezimmer 2',
+                'bedroom3': 'Schlafzimmer 3',
+                'bathroom3': 'Badezimmer 3',
+                'livingroom': 'Wohnzimmer',
+                'kitchen': 'Küche',
+                'breakfast': 'Frühstück',
+                'beach': 'Strand in der Nähe',
+                'karangasem': 'Karangasem',
+                '': '',
+                'contact-title': 'Kontakt',
+                'contact-subtitle0': '<span style=" font-size: 1.1em; font-style: italic;">Der aktuelle Preis pro Nacht (ein Schlafzimmer, bis zu zwei Personen) beträgt <span style="color: #fcc170;">55,00 €</span>. Bei Aufenthalten von mehr als 10 Tagen gelten Rabatte. Dies ist ein Willkommensangebot für unsere ersten Gäste zur Eröffnung und gilt nur für einen begrenzten Zeitraum.</span>',
+                'contact-subtitle1': 'Du hast Fragen oder möchtest buchen? Kontaktiere uns direkt:',
+                'contact-subtitle2': 'Oder nutze das Anfrageformular:',
+                'contact-formcheckin': 'Anreisedatum',
+                'contact-formcheckout': 'Abreisedatum',
+                'contact-formguests': 'Anzahl der Gäste',
+                'contact-formguests0': 'Bitte Anzahl der Gäste wählen',
+                'contact-formguests1': '1 Gast',
+                'contact-formguests2': '2 Gäste',
+                'contact-formguests3': '3 Gäste',
+                'contact-formguests4': '4 Gäste',
+                'contact-formguests5': '5 Gäste',
+                'contact-formguests6': '6 Gäste',
+                'contact-formphone': 'Telefonnummer',
+                'contact-formname': 'Vor- und Nachname',
+                'contact-formemail': 'E-Mail-Adresse',
+                'contact-formnotes': 'Zusätzliche Wünsche oder Anmerkungen',
+                'notes-placeholder': 'Optionale zusätzliche Informationen...',
+                'contact-formsubmit': 'Anfrage senden',
+                'form-success': 'Nachricht erfolgreich gesendet!',
+                'form-error': 'Ein Fehler ist aufgetreten. Die Nachricht wurde nicht gesendet.',
+                 '': '',
+                'privacy-checkbox': 'Ich erkläre, dass ich die <span class="privacy-link" onclick="openPrivacyModal(event)">Datenschutzerklärung</span> gelesen habe und der Verarbeitung meiner personenbezogenen Daten zustimme.*',
+                'privacy-policy': 'Datenschutzerklärung',
+                'privacy-policy-content': '<h3>1. Verantwortlicher für personenbezogene Daten</h3><p>Verantwortlicher für Ihre personenbezogenen Daten ist I Nyoman Arta; Ayanta Bali, Nyuh Tebel, Jl Raya Candidasa, Manggis, Karangasem, Bali 80871; E-Mail: ayanta.bali@gmail.com; Tel: +62 87787651907.</p><h3>2. Rechtsgrundlage der Verarbeitung</h3><p>Wir verarbeiten Ihre personenbezogenen Daten auf Grundlage von:</p><ul><li>Art. 6 Abs. 1 lit. a DSGVO – Einwilligung des Nutzers über das Kontaktformular.</li><li>Art. 6 Abs. 1 lit. f DSGVO – berechtigtes Interesse des Verantwortlichen (Beantwortung von Anfragen zu Reservierungen).</li></ul><h3>3. Zwecke der Datenverarbeitung</h3><p>Wir verarbeiten Ihre personenbezogenen Daten zu folgenden Zwecken:</p><ul><li>Bearbeitung von Anfragen zu Villenreservierungen.</li><li>Kommunikation mit potenziellen Gästen.</li><li>Analyse des Website-Verkehrs (mit Einwilligung, durch Cookies).</li></ul><h3>4. Kategorien verarbeiteter Daten</h3><p>Wir verarbeiten folgende Kategorien personenbezogener Daten:</p><ul><li>Identifikationsdaten (Vor- und Nachname).</li><li>Kontaktdaten (E-Mail, Telefonnummer).</li></ul><h3>5. Speicherdauer der Daten</h3><p>Personenbezogene Daten werden für die Dauer der Bearbeitung der Anfrage gespeichert, maximal jedoch 1 Jahr, es sei denn, der Nutzer erteilt die Einwilligung zur längeren Speicherung.</p><h3>6. Empfänger der Daten</h3><p>Ihre personenbezogenen Daten können übermittelt werden an:</p><ul><li>Hosting-Dienstleister (Home.pl).</li><li>E-Mail-Dienstleister (z. B. Google).</li><li>Analysetool-Anbieter (z. B. Google Analytics, mit Einwilligung).</li><li>Staatliche Stellen, wenn dies gesetzlich erforderlich ist.</li></ul><h3>7. Datenübermittlung in Drittländer</h3><p>Daten können in Drittländer (z. B. USA) übermittelt werden im Zusammenhang mit der Nutzung von Google Analytics. Wir gewährleisten ein angemessenes Datenschutzniveau gemäß DSGVO durch den Einsatz von Standardvertragsklauseln.</p><h3>8. Rechte der betroffenen Personen</h3><p>Sie haben folgende Rechte:</p><ul><li><strong>Auskunftsrecht</strong> – über verarbeitete Daten.</li><li><strong>Recht auf Berichtigung</strong> – unrichtiger Daten.</li><li><strong>Recht auf Löschung</strong> – „Recht auf Vergessenwerden“.</li><li><strong>Recht auf Einschränkung der Verarbeitung</strong> – in bestimmten Situationen.</li><li><strong>Recht auf Datenübertragbarkeit</strong> – Erhalt der Daten in einem strukturierten Format.</li><li><strong>Widerspruchsrecht</strong> – gegen die Verarbeitung auf Grundlage eines berechtigten Interesses.</li><li><strong>Widerrufsrecht</strong> – der Einwilligung jederzeit, ohne Auswirkungen auf die bisherige Verarbeitung.</li><li><strong>Beschwerderecht</strong> – bei der Datenschutzbehörde.</li></ul><h3>9. Datensicherheit</h3><p>Wir setzen technische und organisatorische Maßnahmen ein, um die Datensicherheit zu gewährleisten, darunter:</p><ul><li>Datenverschlüsselung (HTTPS).</li><li>Regelmäßige Backups.</li><li>Zugriffsbeschränkung auf Daten.</li></ul><h3>10. Cookies und Tracking-Technologien</h3><p>Diese Website verwendet Cookies zum Zweck von:</p><ul><li>Gewährleistung der ordnungsgemäßen Funktion der Website.</li><li>Analyse des Website-Verkehrs (Google Analytics, mit Einwilligung des Nutzers).</li></ul><p>Sie können die Cookie-Einstellungen im Browser verwalten oder Ihre Einwilligung über das Cookie-Banner auf der Website erteilen.</p><h3>11. Kontakt zum Datenschutz</h3><p>Bei Fragen zu personenbezogenen Daten können Sie sich an uns wenden:</p><ul><li>E-Mail: ayanta.bali@gmail.com</li><li>Telefon: +62 87787651907</li><li>Postanschrift: Ayanta Bali, Nyuh Tebel, Jl Raya Candidasa, Manggis, Karangasem, Bali 80871</li></ul><h3>12. Änderungen der Datenschutzerklärung</h3><p>Wir behalten uns das Recht vor, die Datenschutzerklärung zu ändern. Über Änderungen informieren wir auf der Website.</p><p><strong>Diese Erklärung gilt ab dem 01.07.2025.</strong></p><hr style="margin: 25px 0; border: none; border-top: 1px solid #ddd;"><h3>13. Informationen für Besucher aus der EU</h3><p>Wenn Sie in der EU ansässig sind, stehen Ihnen Rechte gemäß der DSGVO zu. Bei Fragen kontaktieren Sie uns bitte: ayanta.bali@gmail.com.</p><p style="font-size: 12px; color: #888; margin-top: 30px;">Letzte Aktualisierung: 01.07.2025</p>',
+            }
+        };
+        this.init();
+    }
+
+    translate(key) {
+    const translation = this.translations[this.currentLang][key];
+    return translation || key; // Zwróć klucz jeśli nie ma tłumaczenia
+}
+
+    init() {
+    this.setupLanguageSwitch();
+    const savedLang = localStorage.getItem('selectedLanguage') || this.currentLang;
+    
+    // Ustaw aktywny link w menu
+    this.setActiveLanguageLink(savedLang);
+    
+    // Przełącz język od razu
+    this.switchLanguage(savedLang);
+    
+}
+
+// Dodaj metodę translateGalleryOverlay POZA init()
+translateGalleryOverlay(item) {
+    const overlay = item.querySelector('[data-translate]');
+    if (overlay) {
+        const key = overlay.getAttribute('data-translate');
+        const translation = this.translations[this.currentLang][key];
+        if (translation) {
+            overlay.innerHTML = translation;
+        }
+    }
+}
+
+// Dodaj tę nową metodę
+setActiveLanguageLink(lang) {
+    const langLinks = document.querySelectorAll('.language-dropdown a');
+    langLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('data-lang') === lang) {
+            link.classList.add('active');
+        }
+    });
+}
+
+    setupLanguageSwitch() {
+        const languageSwitch = document.getElementById('languageSwitch');
+        const languageBtn = languageSwitch.querySelector('.language-btn');
+        const dropdown = languageSwitch.querySelector('.language-dropdown');
+        const langLinks = dropdown.querySelectorAll('a');
+
+        languageBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            languageSwitch.classList.toggle('active');
+        });
+
+        document.addEventListener('click', () => {
+            languageSwitch.classList.remove('active');
+        });
+
+        langLinks.forEach((link, index) => {
+            const langs = ['en', 'pl', 'de'];
+            link.setAttribute('data-lang', langs[index]);
+            
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const selectedLang = link.getAttribute('data-lang');
+                this.switchLanguage(selectedLang);
+                
+                langLinks.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+                
+                languageSwitch.classList.remove('active');
+            });
+        });
+    }
+
+    switchLanguage(lang) {
+        if (!this.translations[lang]) return;
+        
+        this.currentLang = lang;
+        const elementsToTranslate = document.querySelectorAll('[data-translate]');
+
+        console.log(`Znaleziono ${elementsToTranslate.length} elementów do tłumaczenia`);
+        
+        elementsToTranslate.forEach(element => {
+            const key = element.getAttribute('data-translate');
+            const translation = this.translations[lang][key];
+
+            console.log(`Element: ${key}, Tłumaczenie: ${translation}`);
+            
+            if (translation) {
+                element.innerHTML = translation;
+            }
+         
+        });
+
+        localStorage.setItem('selectedLanguage', lang);
+        document.documentElement.setAttribute('lang', lang);
+
+        // Tłumaczenie placeholder - DODAJ TO
+    const placeholderElements = document.querySelectorAll('[data-translate-placeholder]');
+    placeholderElements.forEach(element => {
+        const key = element.getAttribute('data-translate-placeholder');
+        const translation = this.translations[lang][key];
+        
+        if (translation) {
+            element.setAttribute('placeholder', translation);
+        }
+    });
+
+    localStorage.setItem('selectedLanguage', lang);
+    document.documentElement.setAttribute('lang', lang);
+    }
+}
+
+// Uruchom system tłumaczeń
+const translator = new LanguageTranslator();
+</script>
+
+<script>
+// Funkcja do automatycznego wykrywania wysokości headera
+function getHeaderHeight() {
+    const header = document.querySelector('header') || 
+                  document.querySelector('.navbar') || 
+                  document.querySelector('[class*="header"]');
+    return header ? header.offsetHeight : 80; // 80px jako fallback
+}
+
+// Aktualizuj scroll padding dynamicznie
+function updateScrollPadding() {
+    const headerHeight = getHeaderHeight();
+    document.documentElement.style.scrollPaddingTop = (headerHeight + 20) + 'px';
+}
+
+// Uruchom przy ładowaniu i zmianie rozmiaru okna
+window.addEventListener('load', updateScrollPadding);
+window.addEventListener('resize', updateScrollPadding);
+
+// Smooth scroll z dynamiczną wysokością
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const target = document.getElementById(targetId.replace('#', ''));
+        
+        if (target) {
+            const offset = getHeaderHeight() + 20;
+            const targetPosition = target.offsetTop - offset;
+            
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+</script>
+
+<script>
+document.querySelector('.logo').addEventListener('click', function(e) {
+    e.preventDefault();
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+</script>
+
+<script>
+document.querySelectorAll('.gallery-item').forEach(item => {
+    item.addEventListener('click', () => {
+        // Usuń active ze wszystkich
+        document.querySelectorAll('.gallery-item').forEach(i => i.classList.remove('active'));
+        // Dodaj active do klikniętego
+        item.classList.add('active');
+    });
+});
+</script>
+
+<div id="privacyModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 data-translate="privacy-policy">Privacy Policy</h2>
+            <span class="close" onclick="closePrivacyModal()">&times;</span>
+        </div>
+        <div class="modal-body">
+            <div data-translate="privacy-policy-content">
+          <h3>1. Data Controller</h3> 
+          <p>The controller of your personal data is I Nyoman Arta; Ayanta Bali, Nyuh Tebel, Jl Raya Candidasa, Manggis, Karangasem, Bali 80871; email: ayanta.bali@gmail.com; phone: +62 87787651907.
+          </p> 
+          <h3>2. Legal Basis for Processing</h3> 
+          <p>We process your personal data based on:</p> 
+          <ul> <li>Art. 6(1)(a) of the GDPR – your consent given via the contact form.</li> 
+            <li>Art. 6(1)(f) of the GDPR – our legitimate interest (responding to inquiries related to villa bookings).</li> 
+        </ul> 
+        <h3>3. Purposes of Data Processing</h3> 
+        <p>We process your personal data for the following purposes:</p> 
+        <ul> <li>Handling inquiries related to villa reservations.</li> 
+            <li>Communication with potential guests.</li> 
+            <li>Website traffic analysis (with your consent, using cookies).</li> 
+        </ul> 
+        <h3>4. Categories of Processed Data</h3> 
+        <p>We process the following categories of personal data:</p> 
+        <ul> <li>Identification data (first and last name).</li> 
+            <li>Contact details (email, phone number).</li> 
+        </ul> 
+        <h3>5. Data Retention Period</h3> 
+        <p>We retain your personal data for as long as necessary to respond to your inquiry, for a maximum of 1 year, unless you give consent for longer storage.</p> 
+        <h3>6. Data Recipients</h3> <p>Your personal data may be shared with:</p> 
+        <ul> <li>Hosting service providers (e.g. Home.pl).</li> <li>Email service providers (e.g. Google).</li> 
+            <li>Analytics tool providers (e.g. Google Analytics, with your consent).</li> <li>Public authorities, if required by law.</li> 
+        </ul> 
+        <h3>7. Transfer of Data to Third Countries</h3> 
+        <p>Your data may be transferred to third countries (e.g., the USA) in connection with the use of Google Analytics. We ensure an adequate level of data protection in line with the GDPR by using standard contractual clauses.</p> 
+        <h3>8. Your Rights</h3> <p>You have the following rights under the GDPR:</p> 
+        <ul> <li><strong>Right of access</strong> – to obtain information about your processed data.</li> 
+            <li><strong>Right to rectification</strong> – to correct inaccurate data.</li> <li><strong>Right to erasure</strong> – the “right to be forgotten.”</li> 
+            <li><strong>Right to restriction of processing</strong> – in certain circumstances.</li>
+             <li><strong>Right to data portability</strong> – to receive your data in a structured format.</li>
+              <li><strong>Right to object</strong> – to processing based on legitimate interests.</li> 
+              <li><strong>Right to withdraw consent</strong> – at any time, without affecting prior processing.</li>
+               <li><strong>Right to lodge a complaint</strong> – with the relevant data protection authority.</li> 
+            </ul> 
+            <h3>9. Data Security</h3> <p>We apply technical and organizational measures to ensure data security, including:</p> 
+            <ul> <li>Data encryption (HTTPS).</li> <li>Regular data backups.</li> <li>Restricted access to personal data.</li> 
+            </ul> 
+            <h3>10. Cookies and Tracking Technologies</h3> <p>This website uses cookies to:</p> 
+            <ul> <li>Ensure the proper functioning of the site.</li> <li>Analyze website traffic (via Google Analytics, with your consent).</li>
+             </ul> 
+             <p>You can manage your cookie preferences in your browser settings or through the cookie banner on the website.</p> <h3>11. Contact Regarding Data Protection</h3> 
+             <p>If you have any questions regarding personal data, you can contact us via:</p> 
+             <ul> <li>Email: ayanta.bali@gmail.com</li> <li>Phone: +62 87787651907</li> <li>Mailing address: Ayanta Bali, Nyuh Tebel, Jl Raya Candidasa, Manggis, Karangasem, Bali 80871</li> 
+            </ul> 
+            <h3>12. Changes to the Privacy Policy</h3> <p>We reserve the right to update this privacy policy. Any changes will be announced on this website.</p> 
+            <p><strong>This policy is effective as of July 1, 2025.</strong></p> <hr style="margin: 25px 0; border: none; border-top: 1px solid #ddd;"> 
+            <h3>13. Information for EU Visitors</h3> <p>If you are a resident of the European Union, you have rights under the GDPR. If you have any questions, please contact us at: ayanta.bali@gmail.com.</p> 
+          <p style="font-size: 12px; color: #888; margin-top: 30px;"> Last updated: July 1, 2025 </p>
+</div>
+</div>
+        </div>
+    </div>
+</div>
+
+<!-- 4. DODAJ JAVASCRIPT PRZED ZAMKNIĘCIEM </body> -->
+
+
+        </body>
+</html>
