@@ -286,41 +286,42 @@
         }
 
         .btn {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            background: rgba(250, 249, 189, 0.877);;
-            border: 2px solid var(--primary-color);
-            color: var(--text-light);
-            font-size: 0.9rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            text-decoration: none;
-            cursor: pointer;
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    color: var(--text-dark);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
 
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 0;
-            height: 100%;
-            background: var(--primary-color);
-            transition: var(--transition);
-            z-index: -1;
-        }
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #01d608;
+    transition: var(--transition);
+    z-index: -1;
+}
 
-        .btn:hover::before {
-            width: 100%;
-        }
+.btn:hover::before {
+    width: 100%;
+}
 
-        .btn:hover {
-            color: var(--text-dark);
-        }
+.btn:hover {
+    border-color: #01d608;
+}
 
         .scroll-down {
             position: absolute;
@@ -1881,7 +1882,7 @@ html[lang="de"] [data-translate="hero-title"] {
                 <h1 class="hero-title" data-translate="hero-title">Żywa Oaza Na Rajskim Bali</h1>
                 <p class="hero-description" data-translate="hero-description">Odkryj wyjątkową przestrzeń, gdzie nowoczesny standard i komfort spotyka się z balijską
                     tradycją, tworząc niepowtarzalny klimat regeneracji, spokoju i harmonii.</p>
-                <a href="#contact" class="btn" data-translate="hero-contact" style="background: transparent !important;">Skontaktuj się</a>
+                <a href="#contact" class="btn" data-translate="hero-contact">Skontaktuj się</a>
             </div>
         </div>
         <div class="scroll-down">
@@ -2675,7 +2676,7 @@ class LanguageTranslator {
                 'hero-subtitle': 'Wypoczynek w raju',
                 'hero-title': 'Twoja Oaza Na Rajskim Bali',
                 'hero-description': 'Odkryj wyjątkową przestrzeń, gdzie nowoczesny standard i komfort spotyka się z balijską tradycją, tworząc niepowtarzalny klimat regeneracji, spokoju i harmonii.',
-                'hero-contact': 'Skontaktuj się',
+                'hero-contact': 'Rezerwuj pobyt',
                 'more-arrow': 'Odkryj więcej',
                 'about-title': 'Willa Ayanta',
                 'about-subtitle': 'Magia w sercu tropikalnego raju',
@@ -2763,7 +2764,7 @@ class LanguageTranslator {
                 'hero-subtitle': 'A Paradise Retreat',
                 'hero-title': 'Your Oasis on Magical Bali',
                 'hero-description': 'Discover a unique space where modern comfort meets Balinese tradition, creating an atmosphere of revitalization, tranquility, and harmony.',
-                'hero-contact': 'Contact Us',
+                'hero-contact': 'Book your stay',
                 'more-arrow': 'Discover More',
                 'about-title': 'Villa Ayanta',
                 'about-subtitle': 'Magic in the Heart of a Tropical Paradise',
@@ -2851,7 +2852,7 @@ class LanguageTranslator {
                 'hero-subtitle': 'Eine Oase im Paradies',
                 'hero-title': 'Deine Oase auf dem magischen Bali',
                 'hero-description': 'Entdecke einen einzigartigen Ort, an dem moderner Komfort auf balinesische Tradition trifft und eine Atmosphäre der Erneuerung, Ruhe und Harmonie entsteht.',
-                'hero-contact': 'Kontaktiere uns',
+                'hero-contact': 'Buchen',
                 'more-arrow': 'Mehr entdecken',
                 'about-title': 'Villa Ayanta',
                 'about-subtitle': 'Magie im Herzen des tropischen Paradieses',
