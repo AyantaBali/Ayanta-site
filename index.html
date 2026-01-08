@@ -1449,7 +1449,7 @@ select.form-control option {
 .booking-icon {
     width: 60px;
     height: 60px;
-    background: #003580;
+    background: #11c900;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -1478,18 +1478,20 @@ select.form-control option {
 }
 
 .booking-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
+    display: inline-block;
+    width: 250px;
+    text-align: center;
+    margin-bottom: 15px;
     background: #003580;
     color: white;
     text-decoration: none;
-    padding: 16px 48px;
+    padding: 16px 24px;
     border-radius: 8px;
     font-size: 18px;
     font-weight: 600;
     transition: all 0.3s ease;
     box-shadow: 0 4px 12px rgba(0, 53, 128, 0.3);
+    white-space: nowrap;
 }
 
 .booking-button:hover {
@@ -2234,7 +2236,16 @@ html[lang="de"] [data-translate="hero-title"] {
        target="_blank" 
        rel="noopener noreferrer"
        class="booking-button">
-        <span class="button-text" data-translate="contact-bgavailability">Sprawdź dostępność</span>
+        <span class="button-text">Booking.com</span>
+        <span class="arrow">→</span>
+    </a>
+
+    <a href="https://www.airbnb.pl/rooms/1593146072724754555?check_in=2026-01-08&check_out=2026-01-13&guests=1&adults=1&s=67&unique_share_id=eb2b40dc-535f-4146-bc83-6a5ce0004996" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       class="booking-button"
+       style="background-color: #FF5A5F !important;">
+        <span class="button-text">Airbnb</span>
         <span class="arrow">→</span>
     </a>
     
@@ -2712,7 +2723,7 @@ class LanguageTranslator {
                 'contact-title': 'Kontakt',
                 'contact-subtitle0': '<span style=" font-size: 1.1em; font-style: italic;">Aktualna cena pobytu za dobę (jedna sypialnia, do dwóch osób) to <span style="color: #fcc170;">250,00 zł ~ 1,1 mln IDR</span>. Cena podlega zniżkom przy pobycie dłuższym, niż 14 dni.</span>',
                 'contact-bgreservation': 'Zarezerwuj swój pobyt',
-                'contact-bgmessage': 'Tymczasowo rezerwacje dostępne są tylko za pośrednictwem platformy Booking.com',
+                'contact-bgmessage': 'Tymczasowo rezerwacje dostępne są tylko za pośrednictwem platform poniżej. Sprawdź dostępność:',
                 'contact-bgavailability': 'Sprawdź dostępność',
                 'contact-bgbadge': '   ✓ Bezpieczna rezerwacja • ✓ Natychmiastowe potwierdzenie',
 
@@ -2800,7 +2811,7 @@ class LanguageTranslator {
                 'contact-title': 'Contact',
                 'contact-subtitle0': '<span style=" font-size: 1.1em; font-style: italic;">The current price per night (one bedroom, up to two guests) is <span style="color: #fcc170;">$69,00 ~ 1,1 mln IDR</span>. Discounts apply for stays longer than 14 days.</span>',
                 'contact-bgreservation': 'Book Your Stay',
-                'contact-bgmessage': 'Reservations are currently available only through Booking.com',
+                'contact-bgmessage': 'Reservations are currently available only through platforms below. Check Availability:',
                 'contact-bgavailability': 'Check Availability',
                 'contact-bgbadge': '   ✓ Secure Booking • ✓ Instant Confirmation',
                 
@@ -2888,7 +2899,7 @@ class LanguageTranslator {
                 'contact-title': 'Kontakt',
                 'contact-subtitle0': '<span style=" font-size: 1.1em; font-style: italic;">Der aktuelle Preis pro Nacht (ein Schlafzimmer, bis zu zwei Personen) beträgt <span style="color: #fcc170;">59,00 € ~ 1,1 mln IDR</span>. Bei Aufenthalten von mehr als 14 Tagen gelten Rabatte.</span>',
                 'contact-bgreservation': 'Buchen Sie Ihren Aufenthalt',
-                'contact-bgmessage': 'Reservierungen sind derzeit nur über Booking.com möglich',
+                'contact-bgmessage': 'Reservierungen sind derzeit nur über die unten aufgeführten Plattformen möglich. Verfügbarkeit prüfen:',
                 'contact-bgavailability': 'Verfügbarkeit prüfen',
                 'contact-bgbadge': '   ✓ Sichere Buchung • ✓ Sofortige Bestätigung',
                 
